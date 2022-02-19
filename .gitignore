@@ -45,7 +45,9 @@ x64/
 *.nupkg
 *.png
 *.dll
-*xml
+*.xml
+*.testlog
+*.manifest
 .builds
 
 # Visual C++ cache files
