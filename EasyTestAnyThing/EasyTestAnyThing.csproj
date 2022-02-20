@@ -52,6 +52,11 @@
     <Compile Include="CSharpReflection\FakeDb\ConnFakeDb.cs" />
     <Compile Include="CSharpReflection\Api\Model\NewApiParameter.cs" />
     <Compile Include="CSharpReflection\Api\NewApi.cs" />
+    <Compile Include="DenpendencyInjection\PlugDemo\Sockets.cs" />
+    <Compile Include="DenpendencyInjection\PlugDemo\SecureHairDryer.cs" />
+    <Compile Include="DenpendencyInjection\PlugDemo\Interface\IHomeAppliance.cs" />
+    <Compile Include="DenpendencyInjection\PlugDemo\HairDryer.cs" />
+    <Compile Include="DenpendencyInjection\Start.cs" />
     <Compile Include="IfNull\Start.cs" />
     <Compile Include="Json\JsonDateTime.cs" />
     <Compile Include="Json\Start.cs" />
@@ -65,8 +70,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DenpendencyInjection\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
