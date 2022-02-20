@@ -1,5 +1,4 @@
-﻿using EasyTestAnyThing.CSharpReflection;
-using System;
+﻿using System;
 
 namespace EasyTestAnyThing
 {
@@ -7,7 +6,6 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
-            Start.StartNotSimplifyMethod();
             Console.ReadKey();
         }
     }
