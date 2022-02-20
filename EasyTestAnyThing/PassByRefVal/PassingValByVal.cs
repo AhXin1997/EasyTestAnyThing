@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EasyTestAnyThing.PassByRefVal
+﻿namespace EasyTestAnyThing.PassByRefVal
 {
     public static class PassingValByVal
     {
@@ -23,6 +17,7 @@ namespace EasyTestAnyThing.PassByRefVal
             System.Console.WriteLine("The value inside the method: {0}", x);
             // 0x23 = 25
         }
+
         public static void Start()
         {
             int n = 5; //0x123 = 5
@@ -30,9 +25,9 @@ namespace EasyTestAnyThing.PassByRefVal
 
             SquareIt(n);  // Passing the variable by value.
             System.Console.WriteLine("The value after calling the method: {0}", n);
-
         }
     }
+
     /* Output:
         The value before calling the method: 5
         The value inside the method: 25

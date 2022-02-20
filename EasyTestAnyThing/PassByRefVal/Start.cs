@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasyTestAnyThing.PassByRefVal
 {
     public static class Start
     {
-        public static void StartMethod() 
+        public static void StartMethod()
         {
             Console.WriteLine(nameof(PassingValByVal));
             PassingValByVal.Start();

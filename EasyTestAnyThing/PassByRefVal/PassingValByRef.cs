@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EasyTestAnyThing.PassByRefVal
+﻿namespace EasyTestAnyThing.PassByRefVal
 {
     public static class PassingValByRef
     {
@@ -10,6 +8,7 @@ namespace EasyTestAnyThing.PassByRefVal
             指向上面宣告的 n 物件記憶體位置
             所以在 SquareIt 對 x 做修改 外部的 n 值也會更動
          */
+
         private static void SquareIt(ref int x) //0x23 = *0x123
         // The parameter x is passed by reference.
         // Changes to x will affect the original value of x.

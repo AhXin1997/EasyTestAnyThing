@@ -12,15 +12,21 @@ namespace EasyTestAnyThing.CSharpReflection.FakeDb
         //模擬Db內資料
         public ApiDomainThing()
         {
-            Item = new Dictionary<string, string>
-            {
-                { "Domain", "http://google.com" },
-                { "Token", "ABCDE123456" },
-                { "Currency","USD"},
-                { "Language","en-us"}
+            Datas = new List<Data> 
+            { 
+                new Data { Key = "Domain", Value = "http://google.com", Description = "網域" }, 
+                new Data { Key = "Token", Value = "ABCDE123456", Description = "Token" },
+                new Data { Key = "Currency", Value = "USD", Description = "貨幣" },
+                new Data { Key = "Language", Value = "en-us", Description = "語言" },
             };
         }
+        public List<Data> Datas { get; set; }
+    }
 
-        public Dictionary<string, string> Item { get; set; }
+    public class Data 
+    {
+        public string Key { get; set; }
+        public string Value { get; set; }
+        public string Description { get; set; }
     }
 }
