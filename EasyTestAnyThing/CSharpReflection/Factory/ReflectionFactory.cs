@@ -12,7 +12,6 @@ namespace EasyTestAnyThing.CSharpReflection.Factory
             var newParameter = Activator.CreateInstance(parameterType);
             SetClassValue(parameterType, newParameter);
             return (T)Activator.CreateInstance(typeof(T), newParameter);
-            //---
         }
 
         private static Type FindClassParameterType<T>()
