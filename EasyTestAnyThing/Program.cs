@@ -6,13 +6,13 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
+            Tuple.Start.StartMethod();
             Console.ReadKey();
         }
 
         private static void TODO_List() 
         {
             /*
-            Add Tuple       C# Example
             Add Thread Safe C# Example
             Add Queue       C# Example
             Flurl 套件熟悉(串Url)
