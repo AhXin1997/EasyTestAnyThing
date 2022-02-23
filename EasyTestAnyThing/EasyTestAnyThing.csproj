@@ -68,6 +68,7 @@
     <Compile Include="PassByRefVal\Start.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CSharpQueue\Start.cs" />
     <Compile Include="Tuple\Start.cs" />
   </ItemGroup>
   <ItemGroup>

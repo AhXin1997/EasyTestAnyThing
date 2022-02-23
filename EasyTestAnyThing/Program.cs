@@ -6,7 +6,7 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
-            Tuple.Start.StartMethod();
+            CSharpQueue.Start.StartMethod();
             Console.ReadKey();
         }
 
