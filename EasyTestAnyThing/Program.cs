@@ -14,8 +14,9 @@ namespace EasyTestAnyThing
         {
             /*
             Add Thread Safe C# Example
-            Add Queue       C# Example
+            Learn How to use Fun Action
             Flurl 套件熟悉(串Url)
+            
 
             Add UnitTestsThing > Program.cs
             Add UnitTestsThing > MSClass > .cs File
