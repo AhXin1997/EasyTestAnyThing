@@ -19,6 +19,10 @@ namespace EasyTestAnyThing
         Add UnitTestsThing > MSClass > .cs File
         Add UnitTestsThing > UnitTestThingTests > MSClass > .cs File
 
+        using FluentAssertions;
+        using NSubstitute;
+        using Xunit;
+
         [✓] Consolo 導入 Mvc架構 可由 PostMan 打入Api
         Add Fliter      Example
 
