@@ -20,11 +20,10 @@ namespace EasyTestAnyThing
         Add UnitTestsThing > UnitTestThingTests > MSClass > .cs File
 
         [✓] Consolo 導入 Mvc架構 可由 PostMan 打入Api
-        Add Repository  Example
-        Add Linq        Example
         Add Fliter      Example
 
         Try Add Db
+        Add Repository  Example
         Mapping
             one to one
             one to many

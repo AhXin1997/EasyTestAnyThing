@@ -149,6 +149,7 @@
     <Compile Include="DenpendencyInjection\Start.cs" />
     <Compile Include="IfNull\Start.cs" />
     <Compile Include="Json\Start.cs" />
+    <Compile Include="LINQ\Start.cs" />
     <Compile Include="PassByRefVal\PassingValByRef.cs" />
     <Compile Include="PassByRefVal\PassingValByVal.cs" />
     <Compile Include="PassByRefVal\Start.cs" />
