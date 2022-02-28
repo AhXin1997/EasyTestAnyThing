@@ -8,6 +8,9 @@ namespace EasyTestAnyThing.LINQ
     {
         private static List<User> Data => MockData.Data;
 
+        /// <summary>
+        /// 語言整合式查詢 Language Integrated Query (LINQ)
+        /// </summary>
         public static void StartMethod()
         {
             HowToUseWhere("AhXin", true);
