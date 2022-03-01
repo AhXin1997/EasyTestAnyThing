@@ -155,6 +155,7 @@
     <Compile Include="MSClass\FizzBuzzClass.cs" />
     <Compile Include="MSClass\MockPageNextAndBack.cs" />
     <Compile Include="MSClass\MosterAndHeroGame.cs" />
+    <Compile Include="MSClass\New\NewDiceGame.cs" />
     <Compile Include="MSClass\RemainderMark.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />
     <Compile Include="MSClass\SharedStateDemo.cs" />
