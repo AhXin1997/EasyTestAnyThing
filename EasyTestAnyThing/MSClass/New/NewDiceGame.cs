@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace EasyTestAnyThing.MSClass.New
 {
@@ -31,6 +33,7 @@ namespace EasyTestAnyThing.MSClass.New
             _messageCenter = messageCenter;
         }
 
+        //抽回GameLogic
         public void Game()
         {
             var diceBox = _diceFactory.RandDice();
@@ -60,27 +63,22 @@ namespace EasyTestAnyThing.MSClass.New
     {
         public int SumDiceAndGivePoint(List<int> diceBox)
         {
-            if (diceBox.Distinct().Count() == 2)
+            switch (diceBox.Distinct().Count())
             {
-                return diceBox.Sum() + 2;
+                case 2:
+                    return diceBox.Sum() + 2;
+                case 1:
+                    return diceBox.Sum() + 6;
+                default:
+                    return diceBox.Sum();
             }
-            if (diceBox.Distinct().Count() == 1)
-            {
-                return diceBox.Sum() + 6;
-            }
-            return diceBox.Sum();
         }
 
         public string WinOrLose(int totalPoint)
         {
-            if (totalPoint >= 15)
-            {
-                return string.Format("You Win, TotalPoint : {0}", totalPoint);
-            }
-            else
-            {
-                return string.Format("You Lose, TotalPoint : {0}", totalPoint);
-            }
+            return totalPoint >= 15 ? 
+                $"You Win, TotalPoint : {totalPoint}" : 
+                $"You Lose, TotalPoint : {totalPoint}";
         }
     }
 
@@ -103,7 +101,7 @@ namespace EasyTestAnyThing.MSClass.New
         public List<int> RandDice()
         {
             var diceBox = new List<int>();
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
                 diceBox.Add(_rand.Next(1, 7));
             }
