@@ -1,36 +1,43 @@
-﻿using System.Collections.Generic;
+﻿using EasyTestAnyThing.MSClass.New.DiceGame.Models;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EasyTestAnyThing.MSClass.New.DiceGame
 {
-    /*
-        2022/03/01
-        在 C# 中使用 if-elseif-else 陳述式在程式碼中加入決策邏輯
-
-        如果您擲出的任兩個骰子產生相同的值，即會因為擲出兩倍而得到兩點獎勵。
-        如果您擲出的三顆骰子全都產生相同的值，則會因為擲出三倍而得到六點獎勵。
-        如果這三顆骰子擲出的總和加上任何獎勵點數為 15 或以上，您就贏得此遊戲。 否則，您就輸了。
-    */
-
-
-    //架構重整
     public class NewDiceGame
     {
-        public static void Start()
+        /// <summary>
+        ///此 StartMethod 模擬 Front-End 使用情況。
+        ///骰子遊戲，
+        ///如果您擲出的任兩個骰子產生相同的值，即會因為擲出兩倍而得到兩點獎勵。
+        ///如果您擲出的三顆骰子全都產生相同的值，則會因為擲出三倍而得到六點獎勵。
+        ///如果這三顆骰子擲出的總和加上任何獎勵點數為 15 或以上，您就贏得此遊戲。 否則，您就輸了。
+        /// </summary>
+        public static void StartMethod()
         {
-            new NewDiceGame(new DiceService(), new MessageCenter()).Game();
+            var gameResponds = new NewDiceGame(new DiceService()).Game();
+
+            Console.WriteLine(gameResponds.IsWin ?
+                $"You Win, TotalPoint : {gameResponds.TotalPoint}" :
+                $"You Lose, TotalPoint : {gameResponds.TotalPoint}");
+
+            string str = string.Empty;
+            gameResponds.DiceBox.ForEach(f => str += $"{f} ");
+            Console.WriteLine("Dice Box : " + str);
         }
 
         private readonly IDiceService _diceService;
-        private readonly IMessageCenter _messageCenter;
+        private readonly int _winnerStandard = 15;
+        private readonly int _threeSameDiceGetPoint = 6;
+        private readonly int _twoSameDiceGetPoint = 2;
 
-        public NewDiceGame(IDiceService diceService, IMessageCenter messageCenter)
+        public NewDiceGame(IDiceService diceService)
         {
             _diceService = diceService;
-            _messageCenter = messageCenter;
         }
 
-        public void Game()
+        public DiceGameResponds Game()
         {
             var diceBox = _diceService.RandDice();
 
@@ -38,20 +45,23 @@ namespace EasyTestAnyThing.MSClass.New.DiceGame
 
             var winOrLose = WinOrLose(totalPoint);
 
-            _messageCenter.SendMessage(diceBox);
-            _messageCenter.SendMessage(totalPoint,winOrLose);
+            return new DiceGameResponds
+            {
+                DiceBox = diceBox,
+                TotalPoint = totalPoint,
+                IsWin = winOrLose
+            };
         }
 
-        //規則 拉變數
         private int SumDiceAndGivePoint(List<int> diceBox)
         {
             switch (diceBox.Distinct().Count())
             {
                 case 2:
-                    return diceBox.Sum() + 2;
+                    return diceBox.Sum() + _twoSameDiceGetPoint;
 
                 case 1:
-                    return diceBox.Sum() + 6;
+                    return diceBox.Sum() + _threeSameDiceGetPoint;
 
                 default:
                     return diceBox.Sum();
@@ -60,9 +70,7 @@ namespace EasyTestAnyThing.MSClass.New.DiceGame
 
         private bool WinOrLose(int totalPoint)
         {
-            return totalPoint >= 15;
+            return totalPoint >= _winnerStandard;
         }
     }
-
-
 }
