@@ -25,8 +25,14 @@ namespace EasyTestAnyThingTest.MSClass.New.DiceGame
 
             _target.Game();
 
-            _messageCenter.Received().SendMessage(Arg.Is<List<int>>(r => r[0] == 6 && r[1] == 5 && r[2] == 3));
-            _messageCenter.Received().SendMessage(Arg.Is<string>(r => r == "You Lose, TotalPoint : 14"));
+            _messageCenter.Received()
+                .SendMessage(Arg.Is<List<int>>(r => 
+                    r[0] == 6 && r[1] == 5 && r[2] == 3));
+
+            _messageCenter.Received()
+                .SendMessage(
+                    Arg.Is<int>(r => r == 14),
+                    Arg.Is<bool>(r => r == false));
         }
 
         [Fact]
@@ -36,8 +42,14 @@ namespace EasyTestAnyThingTest.MSClass.New.DiceGame
 
             _target.Game();
 
-            _messageCenter.Received().SendMessage(Arg.Is<List<int>>(r => r[0] == 6 && r[1] == 1 && r[2] == 1));
-            _messageCenter.Received().SendMessage(Arg.Is<string>(r => r == "You Lose, TotalPoint : 10"));
+            _messageCenter.Received()
+                .SendMessage(Arg.Is<List<int>>(r => 
+                r[0] == 6 && r[1] == 1 && r[2] == 1));
+
+            _messageCenter.Received()
+                .SendMessage(
+                    Arg.Is<int>(r => r == 10),
+                    Arg.Is<bool>(r => r == false));
         }
 
         [Fact]
@@ -47,8 +59,14 @@ namespace EasyTestAnyThingTest.MSClass.New.DiceGame
 
             _target.Game();
 
-            _messageCenter.Received().SendMessage(Arg.Is<List<int>>(r => r[0] == 1 && r[1] == 1 && r[2] == 1));
-            _messageCenter.Received().SendMessage(Arg.Is<string>(r => r == "You Lose, TotalPoint : 9"));
+            _messageCenter.Received()
+                .SendMessage(Arg.Is<List<int>>(r => 
+                    r[0] == 1 && r[1] == 1 && r[2] == 1));
+
+            _messageCenter.Received()
+                .SendMessage(
+                    Arg.Is<int>(r => r == 9),
+                    Arg.Is<bool>(r => r == false));
         }
 
         [Fact]
@@ -58,8 +76,14 @@ namespace EasyTestAnyThingTest.MSClass.New.DiceGame
 
             _target.Game();
 
-            _messageCenter.Received().SendMessage(Arg.Is<List<int>>(r => r[0] == 6 && r[1] == 5 && r[2] == 4));
-            _messageCenter.Received().SendMessage(Arg.Is<string>(r => r == "You Win, TotalPoint : 15"));
+            _messageCenter.Received()
+                .SendMessage(Arg.Is<List<int>>(r => 
+                    r[0] == 6 && r[1] == 5 && r[2] == 4));
+
+            _messageCenter.Received()
+                .SendMessage(
+                    Arg.Is<int>(r => r == 15),
+                    Arg.Is<bool>(r => r == true));
         }
 
         [Fact]
@@ -69,8 +93,14 @@ namespace EasyTestAnyThingTest.MSClass.New.DiceGame
 
             _target.Game();
 
-            _messageCenter.Received().SendMessage(Arg.Is<List<int>>(r => r[0] == 6 && r[1] == 5 && r[2] == 5));
-            _messageCenter.Received().SendMessage(Arg.Is<string>(r => r == "You Win, TotalPoint : 18"));
+            _messageCenter.Received()
+                .SendMessage(Arg.Is<List<int>>(r => 
+                    r[0] == 6 && r[1] == 5 && r[2] == 5));
+
+            _messageCenter.Received()
+                .SendMessage(
+                    Arg.Is<int>(r => r == 18),
+                    Arg.Is<bool>(r => r == true));
         }
 
         [Fact]
@@ -80,8 +110,14 @@ namespace EasyTestAnyThingTest.MSClass.New.DiceGame
 
             _target.Game();
 
-            _messageCenter.Received().SendMessage(Arg.Is<List<int>>(r => r[0] == 6 && r[1] == 6 && r[2] == 6));
-            _messageCenter.Received().SendMessage(Arg.Is<string>(r => r == "You Win, TotalPoint : 24"));
+            _messageCenter.Received()
+                .SendMessage(Arg.Is<List<int>>(r => 
+                    r[0] == 6 && r[1] == 6 && r[2] == 6));
+
+            _messageCenter.Received()
+                .SendMessage(
+                    Arg.Is<int>(r => r == 24),
+                    Arg.Is<bool>(r => r == true));
         }
     }
 }

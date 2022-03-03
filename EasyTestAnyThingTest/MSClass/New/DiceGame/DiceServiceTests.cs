@@ -25,12 +25,13 @@ namespace EasyTestAnyThingTest.MSClass.New.DiceGame
         public void Dice_Num_Min_And_Max_Is_1_6() 
         {
             var ints = new List<int>();
-            for (int i = 0; i < 1000; i++)
+            for (var i = 0; i < 1000; i++)
             {
                 ints.AddRange(_target.RandDice());
             }
             ints.Distinct().Count().Should().Be(6);
-            ints.Distinct().Should().BeEquivalentTo(new List<int> { 1, 2, 3, 4, 5, 6});
+            ints.Distinct().Should()
+                .BeEquivalentTo(new List<int> { 1, 2, 3, 4, 5, 6});
         }
     }
 }

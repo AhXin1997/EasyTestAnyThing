@@ -12,6 +12,8 @@ namespace EasyTestAnyThing.MSClass.New.DiceGame
         如果這三顆骰子擲出的總和加上任何獎勵點數為 15 或以上，您就贏得此遊戲。 否則，您就輸了。
     */
 
+
+    //架構重整
     public class NewDiceGame
     {
         public static void Start()
@@ -19,27 +21,28 @@ namespace EasyTestAnyThing.MSClass.New.DiceGame
             new NewDiceGame(new DiceService(), new MessageCenter()).Game();
         }
 
-        private readonly IDiceService _diceFactory;
+        private readonly IDiceService _diceService;
         private readonly IMessageCenter _messageCenter;
 
-        public NewDiceGame(IDiceService diceFactory, IMessageCenter messageCenter)
+        public NewDiceGame(IDiceService diceService, IMessageCenter messageCenter)
         {
-            _diceFactory = diceFactory;
+            _diceService = diceService;
             _messageCenter = messageCenter;
         }
 
         public void Game()
         {
-            var diceBox = _diceFactory.RandDice();
+            var diceBox = _diceService.RandDice();
 
             var totalPoint = SumDiceAndGivePoint(diceBox);
 
-            var message = WinOrLose(totalPoint);
+            var winOrLose = WinOrLose(totalPoint);
 
             _messageCenter.SendMessage(diceBox);
-            _messageCenter.SendMessage(message);
+            _messageCenter.SendMessage(totalPoint,winOrLose);
         }
 
+        //規則 拉變數
         private int SumDiceAndGivePoint(List<int> diceBox)
         {
             switch (diceBox.Distinct().Count())
@@ -55,11 +58,9 @@ namespace EasyTestAnyThing.MSClass.New.DiceGame
             }
         }
 
-        private string WinOrLose(int totalPoint)
+        private bool WinOrLose(int totalPoint)
         {
-            return totalPoint >= 15 ?
-                $"You Win, TotalPoint : {totalPoint}" :
-                $"You Lose, TotalPoint : {totalPoint}";
+            return totalPoint >= 15;
         }
     }
 

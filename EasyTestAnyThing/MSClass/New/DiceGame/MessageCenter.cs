@@ -5,9 +5,11 @@ namespace EasyTestAnyThing.MSClass.New.DiceGame
 {
     public class MessageCenter : IMessageCenter
     {
-        public void SendMessage(string str)
+        public void SendMessage(int totalPoint, bool winOrLose)
         {
-            Console.WriteLine(str);
+            Console.WriteLine(winOrLose ?
+                $"You Win, TotalPoint : {totalPoint}" :
+                $"You Lose, TotalPoint : {totalPoint}");
         }
 
         public void SendMessage(List<int> diceBox)
@@ -20,7 +22,7 @@ namespace EasyTestAnyThing.MSClass.New.DiceGame
 
     public interface IMessageCenter
     {
-        void SendMessage(string str);
+        void SendMessage(int totalPoint, bool winOrLose);
 
         void SendMessage(List<int> diceBox);
     }

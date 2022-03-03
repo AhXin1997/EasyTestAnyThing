@@ -8,6 +8,7 @@ namespace EasyTestAnyThing
         {
             //WebServer.ServerStart.StartServer();
             MSClass.New.DiceGame.NewDiceGame.Start();
+
             Console.ReadKey();
         }
 
