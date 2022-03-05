@@ -7,7 +7,6 @@ namespace EasyTestAnyThing
         private static void Main()
         {
             //WebServer.ServerStart.StartServer();
-            MSClass.New.DiceGame.NewDiceGame.StartMethod();
 
             Console.ReadKey();
         }

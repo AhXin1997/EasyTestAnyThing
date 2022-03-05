@@ -158,6 +158,7 @@
     <Compile Include="MSClass\New\DiceGame\DiceService.cs" />
     <Compile Include="MSClass\New\DiceGame\Models\DiceGameResponds.cs" />
     <Compile Include="MSClass\New\DiceGame\NewDiceGame.cs" />
+    <Compile Include="MSClass\New\StartWithB\WordStartWithB.cs" />
     <Compile Include="MSClass\RemainderMark.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />
     <Compile Include="MSClass\SharedStateDemo.cs" />
