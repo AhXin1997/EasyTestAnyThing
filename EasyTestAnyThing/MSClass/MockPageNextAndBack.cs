@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EasyTestAnyThing.MSClass
@@ -94,5 +95,17 @@ namespace EasyTestAnyThing.MSClass
     public interface IPageData
     {
         List<string> GetData();
+    }
+
+    public class ConsoleMessageSystem : IMessageSystem
+    {
+        public void OutputMessage(List<string> data)
+        {
+            data.ForEach(s => Console.WriteLine(s));
+        }
+    }
+    public interface IMessageSystem
+    {
+        void OutputMessage(List<string> data);
     }
 }

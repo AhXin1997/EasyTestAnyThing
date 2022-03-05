@@ -7,7 +7,8 @@ namespace EasyTestAnyThing
         private static void Main()
         {
             //WebServer.ServerStart.StartServer();
-
+            var x = new MSClass.New.FizzBizz.MarkFizzBuzz();
+            x.StartMethod();
             Console.ReadKey();
         }
 

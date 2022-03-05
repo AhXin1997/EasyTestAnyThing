@@ -151,14 +151,13 @@
     <Compile Include="Json\Start.cs" />
     <Compile Include="LINQ\Start.cs" />
     <Compile Include="MSClass\DiceRandomGame.cs" />
-    <Compile Include="MSClass\FindStartWithB.cs" />
     <Compile Include="MSClass\FizzBuzzClass.cs" />
     <Compile Include="MSClass\MockPageNextAndBack.cs" />
     <Compile Include="MSClass\MosterAndHeroGame.cs" />
     <Compile Include="MSClass\New\DiceGame\DiceService.cs" />
     <Compile Include="MSClass\New\DiceGame\Models\DiceGameResponds.cs" />
     <Compile Include="MSClass\New\DiceGame\NewDiceGame.cs" />
-    <Compile Include="MSClass\New\StartWithB\WordStartWithB.cs" />
+    <Compile Include="MSClass\New\FizzBizz\MarkFizzBuzz.cs" />
     <Compile Include="MSClass\RemainderMark.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />
     <Compile Include="MSClass\SharedStateDemo.cs" />
