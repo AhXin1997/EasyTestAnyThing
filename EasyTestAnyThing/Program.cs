@@ -1,4 +1,5 @@
 ﻿using System;
+using EasyTestAnyThing.MSClass.New.FizzBuzz;
 
 namespace EasyTestAnyThing
 {
@@ -7,7 +8,7 @@ namespace EasyTestAnyThing
         private static void Main()
         {
             //WebServer.ServerStart.StartServer();
-            var x = new MSClass.New.FizzBizz.MarkFizzBuzz();
+            var x = new MarkFizzBuzz();
             x.StartMethod();
             Console.ReadKey();
         }

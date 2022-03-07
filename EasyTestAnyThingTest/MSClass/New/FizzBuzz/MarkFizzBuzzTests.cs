@@ -1,17 +1,15 @@
-﻿using EasyTestAnyThing.MSClass.New.FizzBizz;
-using FluentAssertions;
+﻿using FluentAssertions;
 using System.Collections.Generic;
 using System.Linq;
+using EasyTestAnyThing.MSClass.New.FizzBuzz;
 using Xunit;
 
-namespace EasyTestAnyThingTest.MSClass.New.FizzBizz
+namespace EasyTestAnyThingTest.MSClass.New.FizzBuzz
 {
     public class FakeMarkFizzBuzz : MarkFizzBuzz
     {
-        protected override IDictionary<int, string> KeyValuePairs
-        {
-            get => _keyValuePairs;
-        }
+        protected override IDictionary<int, string> KeyValuePairs => _keyValuePairs;
+
 
         public Dictionary<int, string> _keyValuePairs =
             new Dictionary<int, string> { };
@@ -80,20 +78,6 @@ namespace EasyTestAnyThingTest.MSClass.New.FizzBizz
 
             _target.MarkFizzBuzzMethod(Enumerable.Range(0, 16))[15]
                 .Should().Be("15 - FizzBuzz");
-            //.BeEquivalentTo(new List<string>
-            //{
-            //    "0 - FizzBuzz",
-            //    "1",
-            //    "2",
-            //    "3 - Fizz",
-            //    "4",
-            //    "5 - Buzz",
-            //    "6 - Fizz",
-            //    "7",
-            //    "8",
-            //    "9 - Fizz",
-            //    "10 - Buzz"
-            //});
         }
     }
 }
