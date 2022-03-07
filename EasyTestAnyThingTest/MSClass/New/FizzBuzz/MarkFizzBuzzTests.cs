@@ -3,81 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using EasyTestAnyThing.MSClass.New.FizzBuzz;
 using Xunit;
+using EasyTestAnyThing.MSClass.New.FizzBuzz.Models;
 
 namespace EasyTestAnyThingTest.MSClass.New.FizzBuzz
 {
-    public class FakeMarkFizzBuzz : MarkFizzBuzz
-    {
-        protected override IDictionary<int, string> KeyValuePairs => _keyValuePairs;
-
-
-        public Dictionary<int, string> _keyValuePairs =
-            new Dictionary<int, string> { };
-    }
-
     public class MarkFizzBuzzTests
     {
-        private readonly FakeMarkFizzBuzz _target;
+        private readonly FizzBuzzClass _target;
 
         public MarkFizzBuzzTests()
         {
-            _target = new FakeMarkFizzBuzz();
+            _target = new FizzBuzzClass();
         }
 
         [Fact]
-        public void MarK_Fizz_When_Num_Can_Be_Divided_Exactly_By_3()
+        public void Mark_Fizz_Buzz_StartWith_14_Count_5_When_Num_Can_Be_Divided_Exactly_By_3_And_5()
         {
-            _target._keyValuePairs.Add(3, "Fizz");
-
-            _target.MarkFizzBuzzMethod(Enumerable.Range(0, 11))
+            _target.MarkFizzBuzz(Enumerable.Range(14, 5))
                 .Should()
-                .BeEquivalentTo(new List<string>
+                .BeEquivalentTo(new List<FizzBuzzResult>
                 {
-                    "0 - Fizz",
-                    "1",
-                    "2",
-                    "3 - Fizz",
-                    "4",
-                    "5",
-                    "6 - Fizz",
-                    "7",
-                    "8",
-                    "9 - Fizz",
-                    "10"
+                    new FizzBuzzResult{ Num = 14, Mark = string.Empty },
+                    new FizzBuzzResult{ Num = 15, Mark = "FizzBuzz" },
+                    new FizzBuzzResult{ Num = 16, Mark = string.Empty },
+                    new FizzBuzzResult{ Num = 17, Mark = string.Empty },
+                    new FizzBuzzResult{ Num = 18, Mark = "Fizz" },
                 });
         }
 
         [Fact]
-        public void MarK_Buzz_When_Num_Can_Be_Divided_Exactly_By_5()
+        public void Mark_Fizz_Buzz_StartWith_92_Count_5_When_Num_Can_Be_Divided_Exactly_By_3_And_5()
         {
-            _target._keyValuePairs.Add(5, "Buzz");
-
-            _target.MarkFizzBuzzMethod(Enumerable.Range(0, 11))
+            _target.MarkFizzBuzz(Enumerable.Range(92, 5))
                 .Should()
-                .BeEquivalentTo(new List<string>
+                .BeEquivalentTo(new List<FizzBuzzResult>
                 {
-                    "0 - Buzz",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5 - Buzz",
-                    "6",
-                    "7",
-                    "8",
-                    "9",
-                    "10 - Buzz"
+                    new FizzBuzzResult{ Num = 92, Mark = string.Empty },
+                    new FizzBuzzResult{ Num = 93, Mark = "Fizz" },
+                    new FizzBuzzResult{ Num = 94, Mark = string.Empty },
+                    new FizzBuzzResult{ Num = 95, Mark = "Buzz" },
+                    new FizzBuzzResult{ Num = 96, Mark = "Fizz" },
                 });
-        }
-
-        [Fact]
-        public void MarK_FizzBuzz_When_Num_Can_Be_Divided_Exactly_By_3_And_5()
-        {
-            _target._keyValuePairs.Add(3, "Fizz");
-            _target._keyValuePairs.Add(5, "Buzz");
-
-            _target.MarkFizzBuzzMethod(Enumerable.Range(0, 16))[15]
-                .Should().Be("15 - FizzBuzz");
         }
     }
 }
