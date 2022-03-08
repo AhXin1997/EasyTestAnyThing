@@ -6,8 +6,9 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
-            var fizzBuzzClass = new MSClass.New.FizzBuzz.FizzBuzzClass();
-            fizzBuzzClass.StartMethod();
+            var fizzBuzzClass = new MSClass.New.MockPage.PageNextBack();
+            var x = fizzBuzzClass.NextBack();
+            x.ForEach(f => Console.WriteLine(f.VideoName + f.VideoType));
             //WebServer.ServerStart.StartServer();
             Console.ReadKey();
         }
