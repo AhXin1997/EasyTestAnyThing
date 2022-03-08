@@ -17,31 +17,31 @@ namespace EasyTestAnyThing.IfNull
         {
             Name = str;
             var y = new List<string>() { Name01, Name02, Name03, Name04 };
-            y.ForEach(f => Console.WriteLine(f));
+            y.ForEach(Console.WriteLine);
         }
 
-        public static string Name { get; set; }
-        public static string IfIsNullThanSetThisWord => "Word";
+        private static string Name { get; set; }
+        private static string IfIsNullThanSetThisWord => "Word";
 
         /// <summary>
         /// If not Null than Name.ToUpper(), Else return IfIsNullThanSetThisWord.
         /// </summary>
-        public static string Name01 => Name != null ? Name.ToUpper() : IfIsNullThanSetThisWord;
+        private static string Name01 => Name != null ? Name.ToUpper() : IfIsNullThanSetThisWord;
 
         /// <summary>
         /// If not Null than Name.ToUpper(), Else return null.
         /// </summary>
-        public static string Name02 => Name?.ToUpper();
+        private static string Name02 => Name?.ToUpper();
 
         /// <summary>
         /// If not Null than return Name, Else return IfIsNullThanSetThisWord.
         /// </summary>
-        public static string Name03 => Name ?? IfIsNullThanSetThisWord;
+        private static string Name03 => Name ?? IfIsNullThanSetThisWord;
 
         /// <summary>
         /// If not Null than return Name, Else return IfIsNullThanSetThisWord.
         /// </summary>
-        public static string Name04
+        private static string Name04
         {
             get
             {

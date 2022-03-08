@@ -1,6 +1,6 @@
-﻿using DenpendencyInjection.PlugDemo;
+﻿using EasyTestAnyThing.DependencyInjection.PlugDemo;
 
-namespace EasyTestAnyThing.DenpendencyInjection
+namespace EasyTestAnyThing.DependencyInjection
 {
     public class Start
     {

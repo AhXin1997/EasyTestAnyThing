@@ -14,9 +14,9 @@ namespace EasyTestAnyThing.MSClass.New.FizzBuzz
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected List<FizzBuzzResult> MarkMethod(IEnumerable<int> list)
+        protected List<MarkResult> MarkMethod(IEnumerable<int> list)
         {
-            return list.Select(num => new FizzBuzzResult()
+            return list.Select(num => new MarkResult()
             {
                 Num = num,
                 Mark = string.Join

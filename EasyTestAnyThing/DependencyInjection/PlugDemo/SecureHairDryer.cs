@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DenpendencyInjection.PlugDemo.Interface;
+using EasyTestAnyThing.DependencyInjection.PlugDemo.Interface;
 
-namespace DenpendencyInjection.PlugDemo
+namespace EasyTestAnyThing.DependencyInjection.PlugDemo
 {
     public class SecureHairDryer : IHomeAppliance
     {
@@ -11,7 +11,7 @@ namespace DenpendencyInjection.PlugDemo
          * 只有Mom or Dad 可以使用該隻吹風機
          */
         private readonly string _user;
-        private  List<string> Identitys => new List<string> { "Mom", "Dad" };
+        private IEnumerable<string> Identities => new List<string> { "Mom", "Dad" };
 
         public SecureHairDryer(string user)
         {
@@ -20,7 +20,7 @@ namespace DenpendencyInjection.PlugDemo
 
         public void Connect()
         {
-            if (Identitys.FirstOrDefault(w => w == _user) != null)
+            if (Identities.FirstOrDefault(w => w == _user) != null)
             {
                 Console.WriteLine("Now " + _user + " Can Use " + nameof(SecureHairDryer));
             }

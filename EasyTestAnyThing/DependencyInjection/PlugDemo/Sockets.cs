@@ -1,6 +1,6 @@
-﻿using DenpendencyInjection.PlugDemo.Interface;
+﻿using EasyTestAnyThing.DependencyInjection.PlugDemo.Interface;
 
-namespace DenpendencyInjection.PlugDemo
+namespace EasyTestAnyThing.DependencyInjection.PlugDemo
 {   
     public class Sockets
     {

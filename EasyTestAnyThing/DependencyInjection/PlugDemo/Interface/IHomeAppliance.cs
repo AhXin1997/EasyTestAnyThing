@@ -1,4 +1,4 @@
-﻿namespace DenpendencyInjection.PlugDemo.Interface
+﻿namespace EasyTestAnyThing.DependencyInjection.PlugDemo.Interface
 {
     /// <summary>
     /// 定義為 家用電器

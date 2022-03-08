@@ -22,13 +22,13 @@ namespace EasyTestAnyThing.Async
             var startTime = GetDateTimeNow();
             var x = await GetData(1);
             var y = await GetData(2);
-            var useDataToDoSometing01 = x + y;
+            var useDataToDoSomething01 = x + y;
             var z = await GetData(3);
-            var useDataToDoSometing02 = useDataToDoSometing01 + z;
+            var useDataToDoSomething02 = useDataToDoSomething01 + z;
 
             Console.WriteLine("Important");
-            Console.WriteLine("取得資料" + useDataToDoSometing02);
-            Console.WriteLine("Done Total Useing Time = 00:{0} sec",(GetDateTimeNow() - startTime).ToString("ss"));
+            Console.WriteLine("取得資料" + useDataToDoSomething02);
+            Console.WriteLine("Done Total Using Time = 00:{0:ss} sec", (GetDateTimeNow() - startTime));
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace EasyTestAnyThing.Async
             var data = await x + await y + await z;
             Console.WriteLine("NotImportant");
             Console.WriteLine("取得資料" + data);
-            Console.WriteLine("Done Total Useing Time = 00:{0} sec", (GetDateTimeNow() - startTime).ToString("ss"));
+            Console.WriteLine("Done Total Using Time = 00:{0} sec", (GetDateTimeNow() - startTime).ToString("ss"));
         }
 
         private static DateTime GetDateTimeNow() 

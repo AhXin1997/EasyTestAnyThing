@@ -6,7 +6,7 @@ namespace EasyTestAnyThing.LINQ
 {
     public class Start
     {
-        private static List<User> Data => MockData.Data;
+        private static IEnumerable<User> Data => MockData.Data;
 
         /// <summary>
         /// 語言整合式查詢 Language Integrated Query (LINQ)
@@ -16,7 +16,7 @@ namespace EasyTestAnyThing.LINQ
             HowToUseWhere("AhXin", true);
             HowToUseWhereContains("Ah", true);
             HowToUseSelect("AhXin", true);
-            HowToUseOrderby(true);
+            HowToUseOrderBy(true);
             HowToUseOrderByDescending(true);
         }
 
@@ -29,18 +29,19 @@ namespace EasyTestAnyThing.LINQ
 
             if (newStyle)
             {
-                var nameEqualsAhxinData = Data.Where(w => w.Name == name).FirstOrDefault();
-                Console.WriteLine
+                var equalsAhXinData = Data.FirstOrDefault(w => w.Name == name);
+                if (equalsAhXinData != null)
+                    Console.WriteLine
                     (
-                        nameEqualsAhxinData.Name + "\t" +
-                        nameEqualsAhxinData.Age + "\t"
+                        equalsAhXinData.Name + "\t" +
+                        equalsAhXinData.Age + "\t"
                     );
             }
             else
             {
                 var whereUser = from s in Data where s.Name == name select s;
                 var user = whereUser.FirstOrDefault();
-                Console.WriteLine(user.Name + "\t" + user.Age + "\t");
+                if (user != null) Console.WriteLine(user.Name + "\t" + user.Age + "\t");
             }
         }
 
@@ -53,18 +54,19 @@ namespace EasyTestAnyThing.LINQ
             if (newStyle)
             {
                 Console.WriteLine(nameof(HowToUseWhereContains));
-                var nameEqualsAhxinData = Data.Where(w => w.Name.Contains(name)).FirstOrDefault();
-                Console.WriteLine
+                var equalsAhXinData = Data.FirstOrDefault(w => w.Name.Contains(name));
+                if (equalsAhXinData != null)
+                    Console.WriteLine
                     (
-                        nameEqualsAhxinData.Name + "\t" +
-                        nameEqualsAhxinData.Age + "\t"
+                        equalsAhXinData.Name + "\t" +
+                        equalsAhXinData.Age + "\t"
                     );
             }
             else
             {
                 var whereUser = from s in Data where s.Name.Contains(name) select s;
                 var user = whereUser.FirstOrDefault();
-                Console.WriteLine(user.Name + "\t" + user.Age + "\t");
+                if (user != null) Console.WriteLine(user.Name + "\t" + user.Age + "\t");
             }
         }
 
@@ -91,13 +93,13 @@ namespace EasyTestAnyThing.LINQ
         /// <summary>
         /// Orderby Age 年紀最小至最大
         /// </summary>
-        private static void HowToUseOrderby(bool newStyle)
+        private static void HowToUseOrderBy(bool newStyle)
         {
             if (newStyle)
             {
-                Console.WriteLine(nameof(HowToUseOrderby));
-                var oderbyAge = Data.OrderBy(o => o.Age);
-                oderbyAge.ToList().ForEach(f =>
+                Console.WriteLine(nameof(HowToUseOrderBy));
+                var orderByAge = Data.OrderBy(o => o.Age);
+                orderByAge.ToList().ForEach(f =>
                     Console.WriteLine
                     (
                         f.Name + "\t" +
@@ -121,8 +123,8 @@ namespace EasyTestAnyThing.LINQ
             if (newStyle)
             {
                 Console.WriteLine(nameof(HowToUseOrderByDescending));
-                var oderbyAge = Data.OrderByDescending(o => o.Age);
-                oderbyAge.ToList().ForEach(f =>
+                var descendingByAge = Data.OrderByDescending(o => o.Age);
+                descendingByAge.ToList().ForEach(f =>
                     Console.WriteLine
                     (
                         f.Name + "\t" +
@@ -138,9 +140,9 @@ namespace EasyTestAnyThing.LINQ
             }
         }
 
-        private static class MockData
+        public static class MockData
         {
-            public static List<User> Data =>
+            public static IEnumerable<User> Data =>
                 new List<User>
                 {
                     new User { Name = "AhXin" , Age = 20 },
@@ -151,7 +153,7 @@ namespace EasyTestAnyThing.LINQ
                 };
         }
 
-        private class User
+        public class User
         {
             public string Name { get; set; }
             public int Age { get; set; }

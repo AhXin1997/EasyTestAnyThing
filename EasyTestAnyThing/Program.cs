@@ -1,5 +1,4 @@
 ﻿using System;
-using EasyTestAnyThing.MSClass.New.FizzBuzz;
 
 namespace EasyTestAnyThing
 {
@@ -22,10 +21,10 @@ namespace EasyTestAnyThing
 
         using FluentAssertions;
         using NSubstitute;
-        using Xunit;
+        using xUnit;
 
-        [✓] Consolo 導入 Mvc架構 可由 PostMan 打入Api
-        Add Fliter      Example
+        [✓] Console 導入 Mvc架構 可由 PostMan 打入Api
+        Add Filter      Example
 
         Try Add Db
         Add Repository  Example

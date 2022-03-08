@@ -1,7 +1,7 @@
-﻿using DenpendencyInjection.PlugDemo.Interface;
-using System;
+﻿using System;
+using EasyTestAnyThing.DependencyInjection.PlugDemo.Interface;
 
-namespace DenpendencyInjection.PlugDemo
+namespace EasyTestAnyThing.DependencyInjection.PlugDemo
 {
     public class HairDryer : IHomeAppliance
     {

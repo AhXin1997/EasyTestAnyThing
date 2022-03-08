@@ -12,7 +12,7 @@ namespace EasyTestAnyThing.CSharpReflection.Factory
             var value = fakeDb.DbTable.Datas.Where(w => w.Key == key).Select(s => s.Value).FirstOrDefault();
             if (string.IsNullOrEmpty(value))
             {
-                throw new NullReferenceException(string.Format("Can't_Find_{0}_Value", key));
+                throw new NullReferenceException($"Can't_Find_{key}_Value");
             }
 
             return value;

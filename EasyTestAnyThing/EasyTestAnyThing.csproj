@@ -142,11 +142,11 @@
     <Compile Include="CSharpReflection\FakeDb\ConnFakeDb.cs" />
     <Compile Include="CSharpReflection\Api\Model\NewApiParameter.cs" />
     <Compile Include="CSharpReflection\Api\NewApi.cs" />
-    <Compile Include="DenpendencyInjection\PlugDemo\Sockets.cs" />
-    <Compile Include="DenpendencyInjection\PlugDemo\SecureHairDryer.cs" />
-    <Compile Include="DenpendencyInjection\PlugDemo\Interface\IHomeAppliance.cs" />
-    <Compile Include="DenpendencyInjection\PlugDemo\HairDryer.cs" />
-    <Compile Include="DenpendencyInjection\Start.cs" />
+    <Compile Include="DependencyInjection\PlugDemo\Sockets.cs" />
+    <Compile Include="DependencyInjection\PlugDemo\SecureHairDryer.cs" />
+    <Compile Include="DependencyInjection\PlugDemo\Interface\IHomeAppliance.cs" />
+    <Compile Include="DependencyInjection\PlugDemo\HairDryer.cs" />
+    <Compile Include="DependencyInjection\Start.cs" />
     <Compile Include="IfNull\Start.cs" />
     <Compile Include="Json\Start.cs" />
     <Compile Include="LINQ\Start.cs" />
@@ -158,7 +158,7 @@
     <Compile Include="MSClass\New\DiceGame\Models\DiceGameResponds.cs" />
     <Compile Include="MSClass\New\DiceGame\NewDiceGame.cs" />
     <Compile Include="MSClass\New\FizzBuzz\FizzBuzzClass.cs" />
-    <Compile Include="MSClass\New\FizzBuzz\Models\FizzBuzzResult.cs" />
+    <Compile Include="MSClass\New\FizzBuzz\Models\MarkResult.cs" />
     <Compile Include="MSClass\New\FizzBuzz\MarkBase.cs" />
     <Compile Include="MSClass\RemainderMark.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />

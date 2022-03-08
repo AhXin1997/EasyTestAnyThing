@@ -29,7 +29,7 @@ namespace EasyTestAnyThing.MSClass.New.FizzBuzz
                 {5, "Buzz"},
             };
 
-        public List<FizzBuzzResult> MarkFizzBuzz(IEnumerable<int> list) 
+        public List<MarkResult> MarkFizzBuzz(IEnumerable<int> list)
             => MarkMethod(list);
     }
 }
