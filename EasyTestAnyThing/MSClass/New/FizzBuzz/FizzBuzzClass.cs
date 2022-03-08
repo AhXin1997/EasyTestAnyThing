@@ -1,5 +1,4 @@
-﻿using EasyTestAnyThing.MSClass.New.FizzBuzz.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,7 +12,7 @@ namespace EasyTestAnyThing.MSClass.New.FizzBuzz
         /// </summary>
         public void StartMethod()
         {
-            MarkFizzBuzz(new List<int>(Enumerable.Range(0, 101)))
+            MarkMethod(new List<int>(Enumerable.Range(0, 101)))
                 .ForEach(f => Console.WriteLine
                 (
                     string.IsNullOrWhiteSpace(f.Mark) ?
@@ -28,8 +27,5 @@ namespace EasyTestAnyThing.MSClass.New.FizzBuzz
                 {3, "Fizz"},
                 {5, "Buzz"},
             };
-
-        public List<MarkResult> MarkFizzBuzz(IEnumerable<int> list)
-            => MarkMethod(list);
     }
 }

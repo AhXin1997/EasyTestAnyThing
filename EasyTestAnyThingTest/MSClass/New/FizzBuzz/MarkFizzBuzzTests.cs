@@ -7,11 +7,11 @@ using Xunit;
 
 namespace EasyTestAnyThingTest.MSClass.New.FizzBuzz
 {
-    public class MarkFizzBuzzTests
+    public class MarkMethodTests
     {
         private readonly FizzBuzzClass _target;
 
-        public MarkFizzBuzzTests()
+        public MarkMethodTests()
         {
             _target = new FizzBuzzClass();
         }
@@ -19,7 +19,7 @@ namespace EasyTestAnyThingTest.MSClass.New.FizzBuzz
         [Fact]
         public void Mark_Fizz_Buzz_StartWith_14_Count_5_When_Num_Can_Be_Divided_Exactly_By_3_And_5()
         {
-            _target.MarkFizzBuzz(Enumerable.Range(14, 5))
+            _target.MarkMethod(Enumerable.Range(14, 5))
                 .Should()
                 .BeEquivalentTo(new List<MarkResult>
                 {
@@ -34,7 +34,7 @@ namespace EasyTestAnyThingTest.MSClass.New.FizzBuzz
         [Fact]
         public void Mark_Fizz_Buzz_StartWith_92_Count_5_When_Num_Can_Be_Divided_Exactly_By_3_And_5()
         {
-            _target.MarkFizzBuzz(Enumerable.Range(92, 5))
+            _target.MarkMethod(Enumerable.Range(92, 5))
                 .Should()
                 .BeEquivalentTo(new List<MarkResult>
                 {

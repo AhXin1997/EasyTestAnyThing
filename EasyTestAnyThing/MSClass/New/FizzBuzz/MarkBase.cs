@@ -6,7 +6,6 @@ namespace EasyTestAnyThing.MSClass.New.FizzBuzz
 {
     public abstract class MarkBase
     {
-        private IDictionary<int, string> KeyValuePairs => DividedExactlyMark;
         protected abstract Dictionary<int, string> DividedExactlyMark { get; }
 
         /// <summary>
@@ -14,14 +13,14 @@ namespace EasyTestAnyThing.MSClass.New.FizzBuzz
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected List<MarkResult> MarkMethod(IEnumerable<int> list)
+        public List<MarkResult> MarkMethod(IEnumerable<int> list)
         {
             return list.Select(num => new MarkResult()
             {
                 Num = num,
                 Mark = string.Join
                         (string.Empty,
-                         KeyValuePairs.Where(s => num % s.Key == 0)
+                            DividedExactlyMark.Where(s => num % s.Key == 0)
                                     .Select(w => w.Value)
                         )
             }).ToList();

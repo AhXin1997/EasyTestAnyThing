@@ -6,6 +6,8 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
+            var fizzBuzzClass = new MSClass.New.FizzBuzz.FizzBuzzClass();
+            fizzBuzzClass.StartMethod();
             //WebServer.ServerStart.StartServer();
             Console.ReadKey();
         }
