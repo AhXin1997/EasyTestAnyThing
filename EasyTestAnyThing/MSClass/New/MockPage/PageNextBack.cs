@@ -7,29 +7,38 @@ namespace EasyTestAnyThing.MSClass.New.MockPage
     public class PageNextBack
     {
         private readonly Data _data;
+        private const int TakeData = 10;
 
-        public PageNextBack() 
+        public PageNextBack()
         {
             _data = new Data();
         }
 
-        public List<Video> NextBack() 
+        public void MockUser()
         {
-            var takeDatas = 10;
             var nowPage = 0;
-
-            switch (Console.ReadKey().Key)
+            var dataList = new List<Video>();
+            while (true)
             {
-                case ConsoleKey.LeftArrow:
-                    nowPage++;
-                    return _data.Videos.Skip((nowPage * takeDatas) - takeDatas).Take(takeDatas).ToList();
-                case ConsoleKey.RightArrow:
-                    nowPage--;
-                    return _data.Videos.Skip(nowPage * takeDatas).Take(takeDatas).ToList();
-                default:
-                    break;
+                switch (Console.ReadKey().Key)
+                {
+                    //TODO Show Now Page And Fix Take/Skip Bug
+                    case ConsoleKey.RightArrow:
+                        dataList.AddRange(NextBack(nowPage++));
+                        dataList.ForEach(f => Console.WriteLine(f.VideoName+f.VideoType));
+
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        dataList.AddRange(NextBack(nowPage--));
+                        dataList.ForEach(f => Console.WriteLine(f.VideoName + f.VideoType));
+                        break;
+                }
             }
-            return _data.Videos.Take(10).Skip(0).ToList();
+        }
+
+        public List<Video> NextBack(int nowPage)
+        {
+            return _data.Videos.Skip(nowPage * TakeData).Take(TakeData).ToList();
         }
     }
 
