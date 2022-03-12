@@ -160,6 +160,11 @@
     <Compile Include="MSClass\New\FizzBuzz\FizzBuzzClass.cs" />
     <Compile Include="MSClass\New\FizzBuzz\Models\MarkResult.cs" />
     <Compile Include="MSClass\New\FizzBuzz\MarkBase.cs" />
+    <Compile Include="MSClass\New\MockPage\GetVideoRequest.cs" />
+    <Compile Include="MSClass\New\MockPage\GetVideosResponse.cs" />
+    <Compile Include="MSClass\New\MockPage\MockData\IData.cs" />
+    <Compile Include="MSClass\New\MockPage\MockData\MockVideoData.cs" />
+    <Compile Include="MSClass\New\MockPage\MockData\Models\Video.cs" />
     <Compile Include="MSClass\New\MockPage\PageNextBack.cs" />
     <Compile Include="MSClass\RemainderMark.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />

@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EasyTestAnyThing.MSClass.New.MockPage.MockData;
+using EasyTestAnyThing.MSClass.New.MockPage.MockData.Models;
+using System;
 using System.Linq;
 
 namespace EasyTestAnyThing.MSClass.New.MockPage
@@ -8,8 +9,6 @@ namespace EasyTestAnyThing.MSClass.New.MockPage
     {
         private readonly IData _data;
         private const int TakeData = 10;
-        private const string OutputVideoFormat = "Video : {0} \tType :{1}";
-        private const string OutputPageFormat = "Page {0}/{1}";
 
         public PageNextBack(IData data)
         {
@@ -17,80 +16,53 @@ namespace EasyTestAnyThing.MSClass.New.MockPage
         }
 
         /// <summary>
-        /// 此 StartMethod 模擬 Front-End 使用情況。
-        /// 輸入頁數後取得該頁數的 TakeData 數資料.
+        /// 依搜尋條件,搜尋相應的資料,且含分頁功能
+        /// 顯示符合這些資訊的總頁數及資料
         /// </summary>
-        public void StartMethod()
+        public GetVideosResponse GetVideos(GetVideoRequest request)
         {
-            while (true)
+            var videos = SetQuery(request);
+            var totalPage = (int)Math.Ceiling(videos.Count() / (float)TakeData);
+
+            if (request.NowPage > totalPage || request.NowPage <= 0)
             {
-                Console.WriteLine("EnterPage");
-                var userInput = Console.ReadLine();
-                if (int.TryParse(userInput, out var userPage) && userPage != 0)
-                {
-                    var data = GetVideos(userPage);
-                    data.Videos.ForEach(f =>
-                        Console.WriteLine(OutputVideoFormat, f.VideoName, f.VideoType)
-                    );
-                    Console.WriteLine(OutputPageFormat, userPage, data.TotalPage);
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
+                return null;
             }
+
+            return new GetVideosResponse()
+            {
+                Videos = videos.Skip((request.NowPage - 1) * TakeData).Take(TakeData).ToList(),
+                TotalPage = totalPage
+            };
         }
 
-        public GetVideosResponse GetVideos(int nowPage)
+        private IQueryable<Video> SetQuery(GetVideoRequest request)
         {
-            int totalPage = (int)Math.Ceiling(_data.Videos.Count / (float)TakeData);
-            if (nowPage <= totalPage && nowPage != 0)
+            var videos = _data.Videos.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(request.VideoName))
             {
-                return new GetVideosResponse
-                {
-                    Videos = _data.Videos.Skip((nowPage - 1) * TakeData).Take(TakeData).ToList(),
-                    TotalPage = totalPage
-                };
+                videos = videos.Where(w => w.VideoName.Contains(request.VideoName));
             }
-            else
+            if (!string.IsNullOrWhiteSpace(request.VideoType))
             {
-                throw new ArgumentOutOfRangeException();
+                videos = videos.Where(w => w.VideoType.Contains(request.VideoType));
             }
+            if (!string.IsNullOrWhiteSpace(request.UploadBy))
+            {
+                videos = videos.Where(w => w.UploadBy.Contains(request.UploadBy));
+            }
+            if (!string.IsNullOrWhiteSpace(request.State))
+            {
+                videos = videos.Where(w => w.State.Contains(request.State));
+            }
+            if (request.VideoTime != null)
+            {
+                videos = videos.Where(w => w.VideoTime >= request.VideoTime);
+            }
+
+            return videos;
         }
     }
 
-    public class GetVideosResponse 
-    {
-        public List<Video> Videos { get; set; }
 
-        public int TotalPage { get; set; }
-    }
-
-    public class Data : IData
-    {
-        public Data()
-        {
-            Videos = new List<Video>
-                (
-                    Enumerable.Range(1, 105).Select(s => new Video
-                    {
-                        VideoName = $"Video_{s}",
-                        VideoType = s % 3 == 0 ? "Adventure" : "Fantasy"
-                    })
-                );
-        }
-
-        public List<Video> Videos { get; set; }
-    }
-
-    public interface IData
-    {
-        List<Video> Videos { get; set; }
-    }
-
-    public class Video
-    {
-        public string VideoName { get; set; }
-        public string VideoType { get; set; }
-    }
 }

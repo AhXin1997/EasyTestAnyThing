@@ -6,10 +6,6 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
-            var fizzBuzzClass = 
-                new MSClass.New.MockPage.PageNextBack(new MSClass.New.MockPage.Data());
-            fizzBuzzClass.StartMethod();
-
             Console.ReadKey();
         }
 
