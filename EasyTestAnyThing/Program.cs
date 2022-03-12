@@ -7,7 +7,7 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
-            var x = new EasyTestAnyThing.ForeachDoNotNewObject.WhatNotNewObject();
+            var x = new EasyTestAnyThing.DoNotNewObjectInLoop.WhyNotNewObjectInLoop();
             x.Start(true);
 
             Console.ReadKey();

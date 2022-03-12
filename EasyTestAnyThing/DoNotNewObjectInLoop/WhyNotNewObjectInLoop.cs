@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EasyTestAnyThing.ForeachDoNotNewObject
+namespace EasyTestAnyThing.DoNotNewObjectInLoop
 {
 
-    public class WhatNotNewObject
+    public class WhyNotNewObjectInLoop
     {
         /// <summary>
         /// 探討一樣的效果,為什麼不能在 Foreach 內新增物件.
         /// </summary>
-        /// <param name="isNewOnLoop">是否在迴圈內新增物件</param>
-        public void Start(bool isNewOnLoop)
+        /// <param name="isNewObjectInLoop">是否在迴圈內新增物件</param>
+        public void Start(bool isNewObjectInLoop)
         {
-            switch (isNewOnLoop)
+            switch (isNewObjectInLoop)
             {
                 case true:
-                    OnLoop();
+                    InLoop();
                     break;
 
                 case false:
@@ -25,7 +25,7 @@ namespace EasyTestAnyThing.ForeachDoNotNewObject
             }
         }
 
-        public void OnLoop()
+        public void InLoop()
         {
             long beforeNewObjectMemory;
             long afterNewObjectMemory;
