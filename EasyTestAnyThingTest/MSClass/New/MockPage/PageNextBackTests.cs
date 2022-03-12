@@ -3,7 +3,6 @@ using EasyTestAnyThing.MSClass.New.MockPage.MockData;
 using EasyTestAnyThing.MSClass.New.MockPage.MockData.Models;
 using FluentAssertions;
 using NSubstitute;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -26,7 +25,7 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
         {
             GivenData();
 
-            var action = _target.GetVideos(new GetVideoRequest() {NowPage = 1});
+            var action = _target.GetVideos(new GetVideoRequest() { NowPage = 1 });
 
             action.Videos.Count.Should().Be(10);
 
@@ -54,7 +53,7 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
         {
             GivenData();
 
-            var action = _target.GetVideos(new GetVideoRequest() { NowPage = 1 , VideoName = "_15"});
+            var action = _target.GetVideos(new GetVideoRequest() { NowPage = 1, VideoName = "_15" });
 
             action.Should().BeEquivalentTo(new GetVideosResponse
             {
@@ -62,8 +61,8 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
                     {
                         new Video
                         {
-                            VideoName = "TestVideo_15", 
-                            VideoType = "TestAdventure", 
+                            VideoName = "TestVideo_15",
+                            VideoType = "TestAdventure",
                             State = "Private",
                             UploadBy = "JackChen",
                             VideoTime = 2,
@@ -103,9 +102,10 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
             GivenData();
 
             var action = _target.GetVideos(
-                new GetVideoRequest() { 
-                    NowPage = 1, 
-                    VideoType = "TestAdventure" ,
+                new GetVideoRequest()
+                {
+                    NowPage = 1,
+                    VideoType = "TestAdventure",
                     UploadBy = "JackChen",
                     VideoTime = 4
                 });
@@ -132,7 +132,7 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
         {
             GivenData();
 
-            _target.GetVideos(new GetVideoRequest() {NowPage = 0 })
+            _target.GetVideos(new GetVideoRequest() { NowPage = 0 })
                 .Should()
                 .BeNull();
         }
@@ -142,7 +142,7 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
         {
             GivenData();
 
-            _target.GetVideos(new GetVideoRequest() {NowPage = -1 })
+            _target.GetVideos(new GetVideoRequest() { NowPage = -1 })
                 .Should()
                 .BeNull();
         }

@@ -147,6 +147,7 @@
     <Compile Include="DependencyInjection\PlugDemo\Interface\IHomeAppliance.cs" />
     <Compile Include="DependencyInjection\PlugDemo\HairDryer.cs" />
     <Compile Include="DependencyInjection\Start.cs" />
+    <Compile Include="ForeachDoNotNewObject\WhatNotNewObject.cs" />
     <Compile Include="IfNull\Start.cs" />
     <Compile Include="Json\Start.cs" />
     <Compile Include="LINQ\Start.cs" />
