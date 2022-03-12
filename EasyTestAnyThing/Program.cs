@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace EasyTestAnyThing
 {
@@ -6,6 +7,9 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
+            var x = new EasyTestAnyThing.ForeachDoNotNewObject.WhatNotNewObject();
+            x.Start(true);
+
             Console.ReadKey();
         }
 
