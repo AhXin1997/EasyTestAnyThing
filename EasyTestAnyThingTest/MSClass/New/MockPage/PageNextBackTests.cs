@@ -26,9 +26,7 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
             GivenData();
 
             var action = _target.GetVideos(new GetVideoRequest() { NowPage = 1 });
-
-            action.Videos.Count.Should().Be(10);
-
+            
             action.Should().BeEquivalentTo(new
             {
                 Videos = new[]

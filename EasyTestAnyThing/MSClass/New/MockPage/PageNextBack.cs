@@ -5,6 +5,12 @@ using System.Linq;
 
 namespace EasyTestAnyThing.MSClass.New.MockPage
 {
+    /*
+     * TakeData  可測試的
+     * MockData  不要寫在 production code
+     * 找不到資料 回傳空物件
+     * SetQuery  簡化
+     */
     public class PageNextBack
     {
         private readonly IData _data;
@@ -39,6 +45,7 @@ namespace EasyTestAnyThing.MSClass.New.MockPage
         private IQueryable<Video> SetQuery(GetVideoRequest request)
         {
             var videos = _data.Videos.AsQueryable();
+
             if (!string.IsNullOrWhiteSpace(request.VideoName))
             {
                 videos = videos.Where(w => w.VideoName.Contains(request.VideoName));
