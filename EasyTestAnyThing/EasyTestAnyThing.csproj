@@ -177,6 +177,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CSharpQueue\Start.cs" />
+    <Compile Include="Tool\EasyOutputMessage.cs" />
     <Compile Include="Tuple\Start.cs" />
     <Compile Include="Async\Start.cs" />
     <Compile Include="WebServer\ServerStart.cs" />

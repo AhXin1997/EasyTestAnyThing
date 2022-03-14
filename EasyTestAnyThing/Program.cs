@@ -1,41 +1,41 @@
-﻿using System;
+﻿using EasyTestAnyThing.Tool;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace EasyTestAnyThing
 {
-    public class Program
+    public class Rich88BetRecord
     {
-        private static void Main()
+        public class Program
         {
-            //var list = new List<string>();
-            //var type = typeof(Rich88BetRecord);
-            //foreach (var index in type.GetProperties())
-            //{
-            //    list.Add($"public {index.PropertyType.ToString().Replace("System.","").ToLower()} {index.Name} " + "{get; set;}");
-            //}
-            //list.ForEach(f => Console.WriteLine(f));
-            //Console.ReadKey();
+            private static void Main()
+            {
+                //Tool
+                //var tool = new EasyOutputMessage();
+                //tool.EasyOutputMessageMethod();
 
-            var x = new DoNotNewObjectInLoop.WhyNotNewObjectInLoop();
-            x.Start(true);
 
-            Console.ReadKey();
+                Console.ReadKey();
+            }
+
+            /* TODO_List
+            Add Thread Safe C# Example
+            Learn How to use Fun Action
+            Flurl 套件熟悉(串Url)
+    
+            [✓] Console 導入 Mvc架構 可由 PostMan 打入Api
+            Add Filter      Example
+    
+            Try Add Db
+            Add Repository  Example
+            Mapping
+                one to one
+                one to many
+                many to many
+    
+             */
         }
-
-        /* TODO_List
-        Add Thread Safe C# Example
-        Learn How to use Fun Action
-        Flurl 套件熟悉(串Url)
-
-        [✓] Console 導入 Mvc架構 可由 PostMan 打入Api
-        Add Filter      Example
-
-        Try Add Db
-        Add Repository  Example
-        Mapping
-            one to one
-            one to many
-            many to many
-
-         */
     }
 }
