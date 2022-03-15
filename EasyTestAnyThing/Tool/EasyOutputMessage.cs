@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EasyTestAnyThing.Tool
 {
@@ -17,26 +18,33 @@ namespace EasyTestAnyThing.Tool
             //ToAccessors(list);
             //ToSql(list);
 
-            list.ForEach(f => Console.WriteLine(f));
+            list.ForEach(Console.WriteLine);
             Console.ReadKey();
         }
 
         private const string Accessors = "{get; set;}";
+
         private void ToAccessors(List<string> list)
         {
-            foreach (var index in typeof(Item).GetProperties())
-            {
-                list.Add($"public {PropertyTypeExtensionToAccessors(index.PropertyType)} {index.Name} " + Accessors);
-            }
+            list.AddRange(
+                typeof(Item)
+                    .GetProperties()
+                    .Select(index =>
+                        $"public {PropertyTypeExtensionToAccessors(index.PropertyType)} {index.Name} " + Accessors
+                        )
+                );
         }
 
         private void ToSql(List<string> list)
         {
             list.Add("Name\tType\tAllow Null");
-            foreach (var index in typeof(Item).GetProperties())
-            {
-                list.Add($"{index.Name}\t{PropertyTypeExtensionToSqlType(index.PropertyType)}\t" + ",");
-            }
+            list.AddRange(
+                typeof(Item)
+                    .GetProperties()
+                    .Select(index => 
+                        $"{index.Name}\t{PropertyTypeExtensionToSqlType(index.PropertyType)}\t" + ","
+                        )
+                );
         }
 
         private string PropertyTypeExtensionToAccessors(Type propertyType)
@@ -62,7 +70,7 @@ namespace EasyTestAnyThing.Tool
                     return "bool";
 
                 default:
-                    return "unknow";
+                    return "unknown";
             }
         }
 
@@ -89,7 +97,7 @@ namespace EasyTestAnyThing.Tool
                     return "bit";
 
                 default:
-                    return "unknow";
+                    return "unknown";
             }
         }
     }
