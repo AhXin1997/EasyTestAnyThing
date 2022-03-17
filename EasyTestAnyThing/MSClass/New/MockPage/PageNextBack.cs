@@ -1,20 +1,13 @@
-﻿using EasyTestAnyThing.MSClass.New.MockPage.MockData;
-using EasyTestAnyThing.MSClass.New.MockPage.MockData.Models;
+﻿using EasyTestAnyThing.MSClass.New.MockPage.Models;
 using System;
 using System.Linq;
 
 namespace EasyTestAnyThing.MSClass.New.MockPage
 {
-    /*
-     * TakeData  可測試的
-     * MockData  不要寫在 production code
-     * 找不到資料 回傳空物件
-     * SetQuery  簡化
-     */
     public class PageNextBack
     {
         private readonly IData _data;
-        private const int TakeData = 10;
+        protected virtual int TakeData => 10;
 
         public PageNextBack(IData data)
         {

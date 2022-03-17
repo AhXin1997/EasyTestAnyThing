@@ -1,6 +1,5 @@
 ﻿using EasyTestAnyThing.MSClass.New.MockPage;
-using EasyTestAnyThing.MSClass.New.MockPage.MockData;
-using EasyTestAnyThing.MSClass.New.MockPage.MockData.Models;
+using EasyTestAnyThing.MSClass.New.MockPage.Models;
 using FluentAssertions;
 using NSubstitute;
 using System.Collections.Generic;
@@ -9,15 +8,24 @@ using Xunit;
 
 namespace EasyTestAnyThingTest.MSClass.New.MockPage
 {
+    public class MockPageNextBack : PageNextBack
+    {
+        public MockPageNextBack(IData data) : base(data)
+        {
+        }
+
+        protected override int TakeData => 2;
+    }
+
     public class PageNextBackTests
     {
-        private readonly PageNextBack _target;
+        private readonly MockPageNextBack _target;
         private readonly IData _data;
 
         public PageNextBackTests()
         {
             _data = Substitute.For<IData>();
-            _target = new PageNextBack(_data);
+            _target = new MockPageNextBack(_data);
         }
 
         [Fact]
@@ -26,23 +34,29 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
             GivenData();
 
             var action = _target.GetVideos(new GetVideoRequest() { NowPage = 1 });
-            
+
             action.Should().BeEquivalentTo(new
             {
-                Videos = new[]
-                    {
-                        new {VideoName = "TestVideo_1", VideoType = "TestFantasy" },
-                        new {VideoName = "TestVideo_2", VideoType = "TestFantasy" },
-                        new {VideoName = "TestVideo_3", VideoType = "TestAdventure" },
-                        new {VideoName = "TestVideo_4", VideoType = "TestFantasy" },
-                        new {VideoName = "TestVideo_5", VideoType = "TestFantasy" },
-                        new {VideoName = "TestVideo_6", VideoType = "TestAdventure" },
-                        new {VideoName = "TestVideo_7", VideoType = "TestFantasy" },
-                        new {VideoName = "TestVideo_8", VideoType = "TestFantasy" },
-                        new {VideoName = "TestVideo_9", VideoType = "TestAdventure" },
-                        new {VideoName = "TestVideo_10", VideoType = "TestFantasy" },
-                    },
-                TotalPage = 3
+                Videos = new List<Video>
+                {
+                        new Video 
+                        {
+                            State = "Public",
+                            UploadBy = "AhXin",
+                            VideoName = "TestVideo_1",
+                            VideoType = "TestFantasy",
+                            VideoTime = 1
+                        },
+                        new Video
+                        {
+                            State = "Public",
+                            UploadBy = "AhXin",
+                            VideoName = "TestVideo_2",
+                            VideoType = "TestFantasy",
+                            VideoTime = 2
+                        }
+                },
+                TotalPage = 13
             });
         }
 
@@ -155,7 +169,8 @@ namespace EasyTestAnyThingTest.MSClass.New.MockPage
                                 VideoTime = s % 3 == 0 || s % 5 == 0 ? (s * 10 / 60) : (s * 60 / 60),
                                 State = s % 3 == 0 && s % 5 == 0 ? "Private" : "Public",
                                 UploadBy = s % 3 == 0 || s % 5 == 0 ? "JackChen" : "AhXin"
-                            })));
+                            }
+                            )));
         }
     }
 }

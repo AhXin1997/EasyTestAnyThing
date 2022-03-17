@@ -1,4 +1,4 @@
-﻿namespace EasyTestAnyThing.MSClass.New.MockPage.MockData.Models
+﻿namespace EasyTestAnyThing.MSClass.New.MockPage.Models
 {
     public class Video
     {
