@@ -166,6 +166,12 @@
     <Compile Include="MSClass\New\MockPage\Models\IData.cs" />
     <Compile Include="MSClass\New\MockPage\Models\Video.cs" />
     <Compile Include="MSClass\New\MockPage\PageNextBack.cs" />
+    <Compile Include="MSClass\New\MonsterAndHeroGame\Models\Creature.cs" />
+    <Compile Include="MSClass\New\MonsterAndHeroGame\Models\Response\FightingRecord.cs" />
+    <Compile Include="MSClass\New\MonsterAndHeroGame\Models\Response\FightingResponse.cs" />
+    <Compile Include="MSClass\New\MonsterAndHeroGame\MonsterHeroGame.cs" />
+    <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewHero.cs" />
+    <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewMonster.cs" />
     <Compile Include="MSClass\RemainderMark.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />
     <Compile Include="MSClass\SharedStateDemo.cs" />
