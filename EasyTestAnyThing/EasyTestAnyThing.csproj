@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -155,6 +156,7 @@
     <Compile Include="MSClass\FizzBuzzClass.cs" />
     <Compile Include="MSClass\MockPageNextAndBack.cs" />
     <Compile Include="MSClass\MosterAndHeroGame.cs" />
+    <Compile Include="MSClass\New\CharReverse\NewCharReverse.cs" />
     <Compile Include="MSClass\New\DiceGame\DiceService.cs" />
     <Compile Include="MSClass\New\DiceGame\Models\DiceGameResponds.cs" />
     <Compile Include="MSClass\New\DiceGame\NewDiceGame.cs" />
@@ -172,7 +174,6 @@
     <Compile Include="MSClass\New\MonsterAndHeroGame\MonsterHeroGame.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewHero.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewMonster.cs" />
-    <Compile Include="MSClass\RemainderMark.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />
     <Compile Include="MSClass\SharedStateDemo.cs" />
     <Compile Include="MSClass\StringSumAndNumSum.cs" />
