@@ -9,8 +9,7 @@ namespace EasyTestAnyThing
         private static void Main()
         {
             var x = new NewLocker();
-            x.SameTimeInserSomeThing();
-            Console.WriteLine(Wallet.Blance);
+            Console.WriteLine(x.SameTimeInserMoney());
 
             var shouldBe = 0;
             for (int i = 1; i < 10; i++)
