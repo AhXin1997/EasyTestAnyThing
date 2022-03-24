@@ -9,11 +9,11 @@ namespace EasyTestAnyThingTest.MSClass.New.FizzBuzz
 {
     public class MarkMethodTests
     {
-        private readonly FizzBuzzClass _target;
+        private readonly NewFizzBuzz _target;
 
         public MarkMethodTests()
         {
-            _target = new FizzBuzzClass();
+            _target = new NewFizzBuzz();
         }
 
         [Fact]
