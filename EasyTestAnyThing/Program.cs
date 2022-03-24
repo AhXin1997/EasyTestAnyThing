@@ -1,6 +1,5 @@
 ﻿using EasyTestAnyThing.MSClass.New.Locker;
 using System;
-using System.Threading.Tasks;
 
 namespace EasyTestAnyThing
 {
@@ -9,15 +8,7 @@ namespace EasyTestAnyThing
         private static void Main()
         {
             var x = new NewLocker();
-            Console.WriteLine(x.SameTimeInserMoney());
-
-            var shouldBe = 0;
-            for (int i = 1; i < 10; i++)
-            {
-                shouldBe += i;
-            }
-            Console.WriteLine(shouldBe);
-
+            x.StartMethod();
 
             //Tool
             //var tool = new EasyOutputMessage();
