@@ -10,23 +10,23 @@ namespace EasyTestAnyThing.MSClass.New.Locker
      */
     public class NewLocker
     {
-        public decimal SameTimeInserMoney()
+        public decimal SameTimeInsertMoney()
         {
             var tasks = new List<Task>();
             for (int i = 1; i < 10; i++)
             {
-                tasks.Add(InserSomeThing(i));
+                tasks.Add(InsertSomeThing(i));
             }
             Task.WhenAll(tasks);
             return Wallet.GetBalance();
         }
 
-        private Task InserSomeThing(decimal amount)
+        private Task InsertSomeThing(decimal amount)
         {
             Wallet.InsertBalance(amount);
             Console.WriteLine(
                 Thread.CurrentThread.ManagedThreadId +
-                ",Now Blance is " +
+                ",Now Balance is " +
                 Wallet.GetBalance());
            return Task.Delay(1);
         }
@@ -36,13 +36,13 @@ namespace EasyTestAnyThing.MSClass.New.Locker
     {
         private static object Locker => new object();
 
-        private static decimal Balance;
+        private static decimal _balance;
 
         public static void InsertBalance(decimal amount)
         {
             lock (Locker)
             {
-                Balance += amount;
+                _balance += amount;
             }
         }
 
@@ -50,7 +50,7 @@ namespace EasyTestAnyThing.MSClass.New.Locker
         {
             lock (Locker)
             {
-                return Balance;
+                return _balance;
             }
         }
     }

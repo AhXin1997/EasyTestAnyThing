@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace EasyTestAnyThing.MSClass.New.FizzBuzz
 {
-    public class FizzBuzzClass : MarkBase
+    public class NewFizzBuzz : MarkBase
     {
         /// <summary>
         /// 此 StartMethod 模擬 Front-End 使用情況。

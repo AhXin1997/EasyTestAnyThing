@@ -11,12 +11,12 @@ namespace EasyTestAnyThingTest.MSClass.New.MonsterAndHeroGame
     public class MonsterHeroGameTests
     {
         private readonly ITestOutputHelper _output;
-        private readonly MonsterHeroGame _target;
+        private readonly NewMonsterAndHeroGame _target;
 
         public MonsterHeroGameTests(ITestOutputHelper testOutputHelper)
         {
             _output = testOutputHelper;
-            _target = new MonsterHeroGame();
+            _target = new NewMonsterAndHeroGame();
         }
 
         [Fact]

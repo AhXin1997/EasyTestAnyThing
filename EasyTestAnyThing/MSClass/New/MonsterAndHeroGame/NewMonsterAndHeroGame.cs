@@ -17,7 +17,7 @@ namespace EasyTestAnyThing.MSClass.New.MonsterAndHeroGame
      * 顯示獲勝者。
     */
 
-    public class MonsterHeroGame
+    public class NewMonsterAndHeroGame
     {
         private Creature _first;
         private Creature _second;

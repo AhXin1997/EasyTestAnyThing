@@ -9,10 +9,10 @@ namespace EasyTestAnyThing
         private static void Main()
         {
             var x = new NewLocker();
-            Console.WriteLine(x.SameTimeInserMoney());
+            Console.WriteLine(x.SameTimeInsertMoney());
 
             var shouldBe = 0;
-            for (int i = 1; i < 10; i++)
+            for (var i = 1; i < 10; i++)
             {
                 shouldBe += i;
             }

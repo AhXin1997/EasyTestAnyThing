@@ -160,7 +160,7 @@
     <Compile Include="MSClass\New\DiceGame\DiceService.cs" />
     <Compile Include="MSClass\New\DiceGame\Models\DiceGameResponds.cs" />
     <Compile Include="MSClass\New\DiceGame\NewDiceGame.cs" />
-    <Compile Include="MSClass\New\FizzBuzz\FizzBuzzClass.cs" />
+    <Compile Include="MSClass\New\FizzBuzz\NewFizzBuzz.cs" />
     <Compile Include="MSClass\New\FizzBuzz\Models\MarkResult.cs" />
     <Compile Include="MSClass\New\FizzBuzz\MarkBase.cs" />
     <Compile Include="MSClass\New\Locker\NewLocker.cs" />
@@ -172,7 +172,7 @@
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\Creature.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\Response\FightingRecord.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\Response\FightingResponse.cs" />
-    <Compile Include="MSClass\New\MonsterAndHeroGame\MonsterHeroGame.cs" />
+    <Compile Include="MSClass\New\MonsterAndHeroGame\NewMonsterAndHeroGame.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewHero.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewMonster.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />
