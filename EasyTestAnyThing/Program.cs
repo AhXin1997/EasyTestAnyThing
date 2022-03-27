@@ -7,8 +7,6 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
-            var x = new NewLocker();
-            x.StartMethod();
 
             //Tool
             //var tool = new EasyOutputMessage();

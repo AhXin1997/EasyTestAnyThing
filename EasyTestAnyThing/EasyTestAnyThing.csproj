@@ -163,7 +163,7 @@
     <Compile Include="MSClass\New\FizzBuzz\NewFizzBuzz.cs" />
     <Compile Include="MSClass\New\FizzBuzz\Models\MarkResult.cs" />
     <Compile Include="MSClass\New\FizzBuzz\MarkBase.cs" />
-    <Compile Include="MSClass\New\Locker\NewLocker.cs" />
+    <Compile Include="MSClass\New\Locker\LockerWallet.cs" />
     <Compile Include="MSClass\New\MockPage\GetVideoRequest.cs" />
     <Compile Include="MSClass\New\MockPage\GetVideosResponse.cs" />
     <Compile Include="MSClass\New\MockPage\Models\IData.cs" />
