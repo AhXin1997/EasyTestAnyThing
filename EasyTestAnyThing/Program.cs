@@ -10,7 +10,15 @@ namespace EasyTestAnyThing
             //var tool = new EasyOutputMessage();
             //tool.EasyOutputMessageMethod();
 
+            //WebServer
+            StartServer();
+
             Console.ReadKey();
+        }
+
+        private static void StartServer() 
+        {
+            WebServer.ServerStart.StartServer();
         }
 
         /* TODO_List

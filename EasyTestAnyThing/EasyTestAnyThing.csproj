@@ -191,9 +191,11 @@
     <Compile Include="Tool\EasyOutputMessage.cs" />
     <Compile Include="Tuple\Start.cs" />
     <Compile Include="Async\Start.cs" />
+    <Compile Include="WebServer\attribute\VerifyRolesAttribute.cs" />
+    <Compile Include="WebServer\DataSpace\MyData.cs" />
     <Compile Include="WebServer\ServerStart.cs" />
     <Compile Include="WebServer\Startup.cs" />
-    <Compile Include="WebServer\Controller\ValuesController.cs" />
+    <Compile Include="WebServer\Controller\RolesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

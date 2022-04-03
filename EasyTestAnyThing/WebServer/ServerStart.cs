@@ -3,7 +3,7 @@ using System;
 
 namespace EasyTestAnyThing.WebServer
 {
-    public class ServerStart
+    public static class ServerStart
     {
         public static void StartServer()
         {
