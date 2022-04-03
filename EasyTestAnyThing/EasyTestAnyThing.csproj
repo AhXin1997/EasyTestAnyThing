@@ -175,6 +175,8 @@
     <Compile Include="MSClass\New\MonsterAndHeroGame\NewMonsterAndHeroGame.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewHero.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewMonster.cs" />
+    <Compile Include="MSClass\New\SumStringNum\SumStringNumClass.cs" />
+    <Compile Include="MSClass\New\SumStringNum\SumStringNumRespones.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />
     <Compile Include="MSClass\SharedStateDemo.cs" />
     <Compile Include="MSClass\StringSumAndNumSum.cs" />
@@ -184,6 +186,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CSharpQueue\Start.cs" />
+    <Compile Include="RegularExpression\RegexClass.cs" />
+    <Compile Include="RegularExpression\RegexResult.cs" />
     <Compile Include="Tool\EasyOutputMessage.cs" />
     <Compile Include="Tuple\Start.cs" />
     <Compile Include="Async\Start.cs" />

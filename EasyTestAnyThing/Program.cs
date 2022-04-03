@@ -1,5 +1,4 @@
-﻿using EasyTestAnyThing.MSClass.New.Locker;
-using System;
+﻿using System;
 
 namespace EasyTestAnyThing
 {
@@ -7,7 +6,6 @@ namespace EasyTestAnyThing
     {
         private static void Main()
         {
-
             //Tool
             //var tool = new EasyOutputMessage();
             //tool.EasyOutputMessageMethod();
