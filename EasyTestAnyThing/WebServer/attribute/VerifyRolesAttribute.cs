@@ -12,12 +12,8 @@ namespace EasyTestAnyThing.WebServer.attribute
             var getRole = actionContext.Request.Headers
                 .FirstOrDefault(f => f.Key == "Role");
 
-            if (getRole.Value == null)
-            {
-                throw new System.Exception("無權限進入");
-            }
-
-            if (!(getRole.Value.Where(w => MyData.Roles.Contains(w)).Any()))
+            if (getRole.Value == null ||
+                !(getRole.Value.Where(w => MyData.Roles.Contains(w)).Any()))
             {
                 throw new System.Exception("無權限進入");
             }

@@ -13,6 +13,7 @@ namespace EasyTestAnyThing.WebServer.Controller
         [Route("IsRoles")]
         [HttpGet]
         [VerifyRoles]
+        [IgnoreFilter(typeof(HandleExceptionAttribute))]
         public string VerifyRoles()
         {
             return "555";

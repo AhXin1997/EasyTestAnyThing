@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using EasyTestAnyThing.WebServer.attribute;
+using Microsoft.Owin;
 using Owin;
 using System.Web.Http;
 
@@ -12,7 +13,7 @@ namespace EasyTestAnyThing.WebServer
         {
             // 如需如何設定應用程式的詳細資訊，請瀏覽 https://go.microsoft.com/fwlink/?LinkID=316888
 
-            HttpConfiguration config = new HttpConfiguration();
+            var config = new HttpConfiguration();
             //config.Routes.MapHttpRoute(
             //    name: "DefaultApi",
             //    routeTemplate: "api/{controller}/{action}/{id}",
@@ -20,8 +21,11 @@ namespace EasyTestAnyThing.WebServer
             //);
 
             config.MapHttpAttributeRoutes();
-            
-            app.UseWebApi(config);            
+
+            //全域設置
+            config.Filters.Add(new HandleExceptionAttribute());
+
+            app.UseWebApi(config);
         }
     }
 }
