@@ -191,6 +191,9 @@
     <Compile Include="Tool\EasyOutputMessage.cs" />
     <Compile Include="Tuple\Start.cs" />
     <Compile Include="Async\Start.cs" />
+    <Compile Include="WebServer\attribute\Model\ErrorResult.cs" />
+    <Compile Include="WebServer\attribute\HandleExceptionAttribute.cs" />
+    <Compile Include="WebServer\attribute\IgnoreFilterAttribute.cs" />
     <Compile Include="WebServer\attribute\VerifyRolesAttribute.cs" />
     <Compile Include="WebServer\DataSpace\MyData.cs" />
     <Compile Include="WebServer\ServerStart.cs" />
