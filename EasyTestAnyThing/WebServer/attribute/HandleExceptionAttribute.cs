@@ -37,7 +37,7 @@ namespace EasyTestAnyThing.WebServer.attribute
                         HttpStatusCode.OK,
                         new ErrorResult()
                         {
-                            Message = "忽略路線",
+                            Message = actionExecutedContext.Exception.Message + "- 忽略路線",
                             ErrorCode = (int)HttpStatusCode.OK
                         });
                 return;
@@ -50,7 +50,7 @@ namespace EasyTestAnyThing.WebServer.attribute
                         HttpStatusCode.InternalServerError,
                         new ErrorResult()
                         {
-                            Message = "沒忽略路線",
+                            Message = actionExecutedContext.Exception.Message + "- 沒忽略路線",
                             ErrorCode = (int)HttpStatusCode.InternalServerError
                         });
         }
