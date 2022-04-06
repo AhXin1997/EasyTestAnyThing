@@ -176,7 +176,7 @@
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewHero.cs" />
     <Compile Include="MSClass\New\MonsterAndHeroGame\Models\NewMonster.cs" />
     <Compile Include="MSClass\New\SumStringNum\SumStringNumClass.cs" />
-    <Compile Include="MSClass\New\SumStringNum\SumStringNumRespones.cs" />
+    <Compile Include="MSClass\New\SumStringNum\SumStringNumResponse.cs" />
     <Compile Include="MSClass\ReverseChar.cs" />
     <Compile Include="MSClass\SharedStateDemo.cs" />
     <Compile Include="MSClass\StringSumAndNumSum.cs" />

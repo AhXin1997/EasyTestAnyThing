@@ -1,5 +1,4 @@
 ﻿using EasyTestAnyThing.WebServer.attribute.Model;
-using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,32 +10,32 @@ namespace EasyTestAnyThing.WebServer.attribute
     {
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
-            Func<IgnoreFilterAttribute, bool> ignoreCheck = (r) =>
+            bool IgnoreCheck(IgnoreFilterAttribute r)
             {
                 return r.FilterType.IsAssignableFrom(typeof(HandleExceptionAttribute));
-            };
+            }
 
             var ignoredActions = actionExecutedContext
                                     .ActionContext
                                     .ActionDescriptor
                                     .GetCustomAttributes<IgnoreFilterAttribute>()
-                                    .Any(ignoreCheck);
+                                    .Any(IgnoreCheck);
 
             var ignoredControllers = actionExecutedContext
                                         .ActionContext
                                         .ControllerContext
                                         .ControllerDescriptor
                                         .GetCustomAttributes<IgnoreFilterAttribute>()
-                                        .Any(ignoreCheck);
+                                        .Any(IgnoreCheck);
 
             if (ignoredActions || ignoredControllers)
             {
-                actionExecutedContext.Response = 
+                actionExecutedContext.Response =
                     actionExecutedContext
                     .Request
                     .CreateResponse(
-                        HttpStatusCode.OK, 
-                        new ErrorResult() 
+                        HttpStatusCode.OK,
+                        new ErrorResult()
                         {
                             Message = "忽略路線",
                             ErrorCode = (int)HttpStatusCode.OK
@@ -54,14 +53,6 @@ namespace EasyTestAnyThing.WebServer.attribute
                             Message = "沒忽略路線",
                             ErrorCode = (int)HttpStatusCode.InternalServerError
                         });
-        }
-
-    }
-
-    internal class Tes
-    {
-        public Tes()
-        {
         }
     }
 }

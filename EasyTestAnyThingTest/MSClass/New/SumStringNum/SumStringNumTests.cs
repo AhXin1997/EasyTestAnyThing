@@ -30,7 +30,7 @@ namespace EasyTestAnyThingTest.MSClass.New.SumStringNum
 
             var actual = _target.StartMethod(values);
 
-            actual.Should().BeEquivalentTo(new SumStringNumRespones() 
+            actual.Should().BeEquivalentTo(new SumStringNumResponse() 
             {
                 Message = "ABCDEF",
                 Total = 68.3m,

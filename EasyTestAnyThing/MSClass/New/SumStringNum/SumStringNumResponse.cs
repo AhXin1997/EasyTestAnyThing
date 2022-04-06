@@ -1,6 +1,6 @@
 ﻿namespace EasyTestAnyThing.MSClass.New.SumStringNum
 {
-    public class SumStringNumRespones
+    public class SumStringNumResponse
     {
         public string Message { get; set; }
         public decimal Total { get; set; }

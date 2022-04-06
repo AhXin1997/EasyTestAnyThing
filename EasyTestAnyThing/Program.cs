@@ -25,6 +25,8 @@ namespace EasyTestAnyThing
          * Add Thread Safe C# Example
          * Learn How to use Fun Action
          * Flurl 套件熟悉(串Url)
+         * Autofac
+         * Mediator
          *
          * [✓] Console 導入 Mvc架構 可由 PostMan 打入Api
          * Add Filter      Example

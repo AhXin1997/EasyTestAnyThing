@@ -1,8 +1,5 @@
 ﻿using EasyTestAnyThing.RegularExpression;
 using FluentAssertions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace EasyTestAnyThingTest
@@ -17,13 +14,13 @@ namespace EasyTestAnyThingTest
         }
 
         [Fact]
-        public void False_When_Request_Is_Not_Email() 
+        public void False_When_Request_Is_Not_Email()
         {
             var request = "abcdefg";
 
             var actual = _target.VerifyIsEmail(request);
 
-            actual.Should().BeEquivalentTo(new RegexResult 
+            actual.Should().BeEquivalentTo(new RegexResult
             {
                 Message = "",
                 IsMatchRule = false,

@@ -14,13 +14,12 @@ namespace EasyTestAnyThing.MSClass
 
         public string StringSumAndNumSumMethod(string[] resource)
         {
-            string[] values = resource;
+            var str = "";
             decimal num = 0;
-            string str = "";
 
-            foreach (var index in values.ToList())
+            foreach (var index in resource)
             {
-                if (decimal.TryParse(index, out decimal value))
+                if (decimal.TryParse(index, out var value))
                 {
                     num += value;
                 }

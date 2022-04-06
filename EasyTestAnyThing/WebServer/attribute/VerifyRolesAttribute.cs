@@ -13,7 +13,7 @@ namespace EasyTestAnyThing.WebServer.attribute
                 .FirstOrDefault(f => f.Key == "Role");
 
             if (getRole.Value == null ||
-                !(getRole.Value.Where(w => MyData.Roles.Contains(w)).Any()))
+                !(getRole.Value.Any(w => MyData.Roles.Contains(w))))
             {
                 throw new System.Exception("無權限進入");
             }

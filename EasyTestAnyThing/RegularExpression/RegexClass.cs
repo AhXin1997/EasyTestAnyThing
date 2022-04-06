@@ -6,7 +6,8 @@ namespace EasyTestAnyThing.RegularExpression
     {
         public RegexResult VerifyIsEmail(string request)
         {
-            var result = new Regex(@"^[\w]*@gmail.com$").Match(request);
+            var result = new Regex(@"^[\w]*@gmail.com$")
+                .Match(request);
 
             return new RegexResult()
             {
@@ -17,7 +18,8 @@ namespace EasyTestAnyThing.RegularExpression
 
         public RegexResult VerifyDecimalSecondPlace(decimal amount)
         {
-            var result = new Regex(@"^[\d](.[\d]{1,2})?$").Match(amount.ToString());
+            var result = new Regex(@"^[\d](.[\d]{1,2})?$")
+                .Match(amount.ToString());
 
             return new RegexResult()
             {

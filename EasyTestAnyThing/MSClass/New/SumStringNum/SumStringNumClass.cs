@@ -2,7 +2,7 @@
 {
     public class SumStringNumClass
     {
-        public SumStringNumRespones StartMethod(string[] request)
+        public SumStringNumResponse StartMethod(string[] request)
         {
             var str = string.Empty;
             var num = 0m;
@@ -19,7 +19,7 @@
                 }
             }
 
-            return new SumStringNumRespones()
+            return new SumStringNumResponse()
             {
                 Message = str,
                 Total = num
