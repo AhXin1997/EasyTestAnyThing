@@ -19,6 +19,7 @@ namespace EasyTestAnyThingTest.MSClassNew
         public LockerWalletTests(ITestOutputHelper outputHelper)
         {
             _outputHelper = outputHelper;
+            Wallet.ResetBalance();
         }
 
         [Fact]

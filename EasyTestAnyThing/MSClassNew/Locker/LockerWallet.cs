@@ -13,7 +13,12 @@ namespace EasyTestAnyThing.MSClassNew.Locker
 
         private static readonly object Locker = new object();
 
-        private static decimal Balance;
+        private static decimal _balance;
+
+        public static void ResetBalance()
+        {
+            _balance = 0;
+        }
 
         public static string InsertBalance(decimal amount)
         {
@@ -23,13 +28,13 @@ namespace EasyTestAnyThing.MSClassNew.Locker
                 lock (Locker)
                 {
                     return $"[Thread : {Thread.CurrentThread.ManagedThreadId}] " +
-                           $"{Balance} + {amount} = {Balance += amount}";
+                           $"{_balance} + {amount} = {_balance += amount}";
                 }
             }
             else
             {
                 return $"[Thread : {Thread.CurrentThread.ManagedThreadId}] " +
-                       $"{Balance} + {amount} = {Balance += amount}";
+                       $"{_balance} + {amount} = {_balance += amount}";
             }
         }
 
@@ -39,12 +44,12 @@ namespace EasyTestAnyThing.MSClassNew.Locker
             {
                 lock (Locker)
                 {
-                    return Balance;
+                    return _balance;
                 }
             }
             else
             {
-                return Balance;
+                return _balance;
             }
         }
     }
