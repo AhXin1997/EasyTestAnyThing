@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace EasyTestAnyThing.WebServer.attribute
+namespace EasyTestAnyThing.WebServer.Attribute
 {
-    public class IgnoreFilterAttribute : Attribute
+    public class IgnoreFilterAttribute : System.Attribute
     {
         public Type FilterType { get; }
 

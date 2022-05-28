@@ -1,10 +1,10 @@
-﻿using EasyTestAnyThing.WebServer.attribute.Model;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http.Filters;
+using EasyTestAnyThing.WebServer.Attribute.Model;
 
-namespace EasyTestAnyThing.WebServer.attribute
+namespace EasyTestAnyThing.WebServer.Attribute
 {
     public class HandleExceptionAttribute : ExceptionFilterAttribute
     {

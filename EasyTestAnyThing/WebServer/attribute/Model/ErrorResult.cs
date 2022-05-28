@@ -1,4 +1,4 @@
-﻿namespace EasyTestAnyThing.WebServer.attribute.Model
+﻿namespace EasyTestAnyThing.WebServer.Attribute.Model
 {
     public class ErrorResult
     {

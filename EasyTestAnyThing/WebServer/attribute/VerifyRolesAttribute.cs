@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace EasyTestAnyThing.WebServer.attribute
+namespace EasyTestAnyThing.WebServer.Attribute
 {
     public class VerifyRolesAttribute : AuthorizationFilterAttribute
     {
