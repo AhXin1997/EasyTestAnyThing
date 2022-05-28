@@ -5,7 +5,7 @@ using FluentAssertions;
 using NSubstitute;
 using Xunit;
 
-namespace EasyTestAnyThingTest.Training.MSClass.MSClassNew
+namespace EasyTestAnyThingTest.Training.MSClass
 {
     public class DiceRandomGameTests
     {

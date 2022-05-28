@@ -6,7 +6,7 @@ using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace EasyTestAnyThingTest.Training.MSClass.MSClassNew
+namespace EasyTestAnyThingTest.Training.MSClass
 {
     public class LockerWalletTests
     {

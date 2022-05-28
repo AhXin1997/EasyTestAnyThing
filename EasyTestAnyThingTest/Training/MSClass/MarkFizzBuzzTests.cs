@@ -5,7 +5,7 @@ using EasyTestAnyThing.Training.MSClass.FizzBuzz.Models;
 using FluentAssertions;
 using Xunit;
 
-namespace EasyTestAnyThingTest.Training.MSClass.MSClassNew
+namespace EasyTestAnyThingTest.Training.MSClass
 {
     public class MarkMethodTests
     {

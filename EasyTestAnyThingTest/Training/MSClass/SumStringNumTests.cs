@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace EasyTestAnyThingTest.Training.MSClass.MSClassNew
+namespace EasyTestAnyThingTest.Training.MSClass
 {
     /*
      * string[] values = { "12.3", "45", "ABC", "11", "DEF" };

@@ -4,7 +4,7 @@ using EasyTestAnyThing.Training.MSClass.DiceGame;
 using FluentAssertions;
 using Xunit;
 
-namespace EasyTestAnyThingTest.Training.MSClass.MSClassNew
+namespace EasyTestAnyThingTest.Training.MSClass
 {
     public class DiceServiceTests
     {
