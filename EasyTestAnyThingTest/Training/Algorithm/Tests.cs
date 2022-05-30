@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentAssertions;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
@@ -39,53 +41,58 @@ namespace EasyTestAnyThingTest.Training.Algorithm
                 }
             }
         }
-
+        
         /// <summary>
         /// 二分搜尋法 O(log n)
         /// </summary>
-        [Fact]
-        public void 二分搜尋法()
+        [Theory]
+        [InlineData(
+            new[] { 5, 17, 33, 41, 55, 61, 80, 111, 123 },
+            55,
+            55)]
+        [InlineData(
+            new[] { 5, 17, 33, 41, 55 }, 
+            55, 
+            55)]
+        [InlineData(
+            new[] { 55, 60, 72, 88, 93 }, 
+            55, 
+            55)]
+        [InlineData(
+            new[] { 2,5,8,50,53,59,63,80 }, 
+            55, 
+            0)]
+        public void 二分搜尋法(int[] arr, int target,int assertNumber)
         {
-            var target = 55;
-            var count = 0;
+            var totalLoop = 0;
 
-            var numbers = new[] { 5, 17, 33, 41, 55, 61, 80, 111, 123 };
-            var halfCount = (int)Math.Floor(numbers.Count() / 2d);
-            var indexNumber = 0;
+            var mid = 0;
+            var start = 0;
+            var end = arr.Count();
 
-            var doubleIndex = 0;
-            var halvingIndex = 0;
-
-            while (target != indexNumber)
+            var findNumber = 0;
+            while (start <= end)
             {
-                count++;
-                indexNumber = numbers[halfCount];
+                totalLoop++;
+                mid = (start + end) / 2;
 
-                //目標數字 大於 當前數字
-                //將Index * 2
-                //找出下一區域的中間值
-                if (target > indexNumber)
+                if (arr[mid] < target)
                 {
-                    halfCount *= 2;
-                    doubleIndex = halfCount;
+                    start = mid + 1;
                 }
-
-                //目標數字 小於 當前數字
-                //將Index / 2
-                //找出上一區域的中間值
-                if (target < indexNumber)
+                else if (arr[mid] > target)
                 {
-                    halfCount /= 2;
-                    halvingIndex = halfCount;
+                    end = mid - 1;
                 }
-
-                if (doubleIndex - halvingIndex == 3)
+                else
                 {
-                    halfCount++;
+                    findNumber = arr[mid];
                     break;
                 }
             }
-            _testOutputHelper.WriteLine($"用了{count}次,找到{numbers[halfCount]}.");
+
+            _testOutputHelper.WriteLine($"用了{totalLoop}次,找到{findNumber},於陣列中Index:{mid}");
+            findNumber.Should().Be(assertNumber);
         }
 
         /// <summary>
