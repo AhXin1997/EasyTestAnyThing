@@ -62,6 +62,10 @@ namespace EasyTestAnyThingTest.Training.Algorithm
             new[] { 2,5,8,50,53,59,63,80 }, 
             55, 
             0)]
+        [InlineData(
+            new[] { 1, 3, 4, 6, 7, 8, 10, 13, 14 },
+            4,
+            4)]
         public void 二分搜尋法(int[] arr, int target,int assertNumber)
         {
             var totalLoop = 0;
@@ -98,9 +102,20 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         /// <summary>
         /// 給一個陣列，裡面數字都是兩兩存在、但有一個落單的數字，請抓出來
         /// 給[1, 1 ,2]
+        /// 要去嘗試手刻GroupBy
         /// </summary>
-        public void test()
+        [Theory]
+        [InlineData(
+            new[] { 5, 5, 33, 41, 41, 123, 80, 33, 123 },
+            80)]
+        [InlineData(
+            new[] { 5, 5, 55, 55, 5, 5, 80, 55, 55 },
+            80)]
+        public void LeetCodeSingleNumber(int[] arr,int target)
         {
+            var groupBy = arr.GroupBy(g => g);
+            var firstOrDefault = groupBy.FirstOrDefault(s => s.Count() < 2);
+            firstOrDefault?.Key.Should().Be(target);
         }
 
         /// <summary>
