@@ -41,7 +41,7 @@ namespace EasyTestAnyThingTest.Training.Algorithm
                 }
             }
         }
-        
+
         /// <summary>
         /// 二分搜尋法 O(log n)
         /// </summary>
@@ -51,22 +51,22 @@ namespace EasyTestAnyThingTest.Training.Algorithm
             55,
             55)]
         [InlineData(
-            new[] { 5, 17, 33, 41, 55 }, 
-            55, 
+            new[] { 5, 17, 33, 41, 55 },
+            55,
             55)]
         [InlineData(
-            new[] { 55, 60, 72, 88, 93 }, 
-            55, 
+            new[] { 55, 60, 72, 88, 93 },
+            55,
             55)]
         [InlineData(
-            new[] { 2,5,8,50,53,59,63,80 }, 
-            55, 
+            new[] { 2, 5, 8, 50, 53, 59, 63, 80 },
+            55,
             0)]
         [InlineData(
             new[] { 1, 3, 4, 6, 7, 8, 10, 13, 14 },
             4,
             4)]
-        public void 二分搜尋法(int[] arr, int target,int assertNumber)
+        public void 二分搜尋法(int[] arr, int target, int assertNumber)
         {
             var totalLoop = 0;
 
@@ -102,7 +102,6 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         /// <summary>
         /// 給一個陣列，裡面數字都是兩兩存在、但有一個落單的數字，請抓出來
         /// 給[1, 1 ,2]
-        /// 要去嘗試手刻GroupBy
         /// </summary>
         [Theory]
         [InlineData(
@@ -111,17 +110,144 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         [InlineData(
             new[] { 5, 5, 55, 55, 5, 5, 80, 55, 55 },
             80)]
-        public void LeetCodeSingleNumber(int[] arr,int target)
+        public void SingleNumber(int[] arr, int target)
         {
-            var groupBy = arr.GroupBy(g => g);
-            var firstOrDefault = groupBy.FirstOrDefault(s => s.Count() < 2);
-            firstOrDefault?.Key.Should().Be(target);
+            arr.GroupBy(g => g)
+                .First(s => s.Count() < 2).Key
+                .Should()
+                .Be(target);
+        }
+
+        /// <summary>
+        /// 自刻GroupBy
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="target"></param>
+        [Theory]
+        [InlineData(
+            new[] { 5, 5, 33, 41, 41, 123, 80, 33, 123 },
+            80)]
+        [InlineData(
+            new[] { 5, 5, 55, 55, 5, 5, 80, 55, 55 },
+            80)]
+        public void SingleNumberGroupBy(int[] arr, int target)
+        {
+            var selfGroupBy = new Dictionary<int, List<int>>();
+            foreach (var key in arr)
+            {
+                if (selfGroupBy.ContainsKey(key)) continue;
+                selfGroupBy.Add(key, arr.Where(value => key == value).ToList());
+            }
+
+            var firstOrDefault = selfGroupBy.FirstOrDefault(s => s.Value.Count < 2);
+            firstOrDefault.Key.Should().Be(target);
         }
 
         /// <summary>
         /// 題目給羅馬數字，要把它轉換成阿拉伯數字。比如給”IV”得到數字4、給”VI”會得到6，”DCXXI”得到621。
         /// </summary>
-        public void test1()
+        [Theory]
+        [InlineData("IV", 4)]
+        [InlineData("CXCIX", 199)]
+        [InlineData("DCXXI", 621)]
+        [InlineData("DCCC", 800)]
+        [InlineData("MCDXXXVII", 1437)]
+        [InlineData("MMMCCCXXXIII", 3333)]
+        public void RomanToArabicNumber(string request, int target)
+        {
+            var romanNumberDictionary = new Dictionary<string, int>()
+            {
+                { "I", 1 },
+                { "V", 5 },
+                { "X", 10 },
+                { "L", 50 },
+                { "C", 100 },
+                { "D", 500 },
+                { "M", 1000 },
+            };
+
+            var isAllowMinus = new List<char>()
+            {
+                'I', 'X', 'C'
+            };
+
+            int answer = default;
+            int listNumber = default;
+            char listWord = default;
+            var isFirstTime = true;
+
+            foreach (var word in request)
+            {
+                var number = romanNumberDictionary[word.ToString()];
+                if (number > listNumber &&
+                    isAllowMinus.Contains(listWord) &&
+                    !isFirstTime)
+                {
+                    answer -= (listNumber * 2) - number;
+                }
+                else
+                {
+                    answer += number;
+                }
+
+                isFirstTime = false;
+                listNumber = number;
+                listWord = word;
+            }
+
+            Math.Abs(answer).Should().Be(target);
+        }
+
+        /// <summary>
+        /// Input: numbers = [2,7,11,15], target = 9
+        /// Output: [1,2]
+        /// Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
+        /// 請找已排序陣列(小到大)裡，哪兩個數字總和等於 target
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="target"></param>
+        public void TwoSum(string request, int target)
+        {
+        }
+
+        /// <summary>
+        /// input: 給一個沒有負數的數字陣列
+        ///     output: 回傳前面是偶數後面是奇數的陣列
+        ///
+        /// Example 1:
+        /// Input: [3,1,2,4]
+        /// Output: [2,4,3,1]
+        /// The outputs[4, 2, 3, 1], [2, 4, 1, 3], and[4, 2, 1, 3] would also be accepted.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="target"></param>
+        public void SortArrayByParity(string request, int target)
+        {
+        }
+
+        /// <summary>
+        /// https://leetcode.cn/problems/remove-element/
+        /// 输入：nums = [3,2,2,3], val = 3
+        /// 输出：2, nums = [2,2]
+        /// 解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。
+        /// 你不需要考虑数组中超出新长度后面的元素。
+        /// 例如，函数返回的新长度为 2 ，
+        /// 而 nums = [2, 2, 3, 3] 或 nums = [2, 2, 0, 0]，也会被视作正确答案。
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="target"></param>
+        [Theory]
+        [InlineData(
+            new[] { 5, 41, 41, 33, 123 },
+            41,
+            new[] { 5, 33, 123 },
+            3)]
+        [InlineData(
+            new[] { 5, 5, 55, 55, 5, 5, 80, 55, 55 },
+            5,
+            new[] { 55, 55, 55, 55, 80 },
+            3)]
+        public void RemoveElement(int[] arr, int removeNumber, int[] newArr, int newArrCount)
         {
         }
     }
