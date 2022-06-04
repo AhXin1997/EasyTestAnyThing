@@ -250,5 +250,37 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         public void RemoveElement(int[] arr, int removeNumber, int[] newArr, int newArrCount)
         {
         }
+
+        /*
+         * 綜合應用 -- 隨機分配飯店分房睡
+         * 問題 : 這十二位到日本七天六夜旅遊
+         * 現在有三間飯店
+         * 這十二位旅行人
+         * 十二位旅行者 隨機分配到四間大飯店
+         *
+         * 步驟
+         * 1. 需要取得數據
+         * 取得12為 旅行者數據 -- 列表
+         * 取得四間大飯店的數據 -- 列表勘套
+         * 奈良溫泉 加賀屋溫泉 大板根溫泉 草津溫泉
+         *
+         * 2. 分配旅遊者到大飯店 分房
+         * ***隨機分配
+         * 把旅行者明子導入到大飯店列表
+         *
+         * 3. 驗證是否分配成功
+         * 列印出大飯店詳細訊息
+         * 每間大飯店的人數和對應旅行者的名字
+         *
+         */
+
+        [Theory]
+        [InlineData(
+            new[] { "man01", "man02","man03", "man04","man05", "man06",
+                "woman01", "woman02","woman03", "woman04","woman05", "woman06",},
+            new[] { "奈良溫泉", "加賀屋溫泉", "大板根溫泉", "草津溫泉" })]
+        public void RandomSleep(string[] traveler, string[] hotSpringHotel)
+        {
+        }
     }
 }
