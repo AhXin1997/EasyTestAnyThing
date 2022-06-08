@@ -172,18 +172,18 @@ namespace EasyTestAnyThingTest.Training.Algorithm
             };
 
             int answer = default;
-            int listNumber = default;
-            char listWord = default;
+            int lastNumber = default;
+            char lastWord = default;
             var isFirstTime = true;
 
             foreach (var word in request)
             {
                 var number = romanNumberDictionary[word.ToString()];
-                if (number > listNumber &&
-                    isAllowMinus.Contains(listWord) &&
+                if (number > lastNumber &&
+                    isAllowMinus.Contains(lastWord) &&
                     !isFirstTime)
                 {
-                    answer -= (listNumber * 2) - number;
+                    answer -= (lastNumber * 2) - number;
                 }
                 else
                 {
@@ -191,8 +191,8 @@ namespace EasyTestAnyThingTest.Training.Algorithm
                 }
 
                 isFirstTime = false;
-                listNumber = number;
-                listWord = word;
+                lastNumber = number;
+                lastWord = word;
             }
 
             Math.Abs(answer).Should().Be(target);
@@ -202,12 +202,47 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         /// Input: numbers = [2,7,11,15], target = 9
         /// Output: [1,2]
         /// Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
-        /// 請找已排序陣列(小到大)裡，哪兩個數字總和等於 target
+        /// 請找已排序陣列(小到大)裡，哪兩個數字(相對位置)總和等於 target
         /// </summary>
-        /// <param name="request"></param>
-        /// <param name="target"></param>
-        public void TwoSum(string request, int target)
+        [Theory]
+        [InlineData(
+            new[] { 5, 8, 15, 30, 68 },
+            73,
+            new[] { 1, 5 })]
+        [InlineData(
+            new[] { 5, 23, 88, 450, 1280, 1999, 2224, 3852, 10059 },
+            11339,
+            new[] { 5, 9 })]
+        public void TwoSum(int[] numbers, int target, int[] relativeIndexShouldBe)
         {
+            var catchRelativeIndex = new int[2];
+            var i0index = 0;
+            var i1index = 0;
+
+            var x = false;
+            
+            foreach (var i0 in numbers)
+            {
+                foreach (var i1 in numbers)
+                {
+                    if (i0 + i1 == target)
+                    {
+                        catchRelativeIndex.SetValue(++i0index, 0);
+                        catchRelativeIndex.SetValue(++i1index, 1);
+                        x = true;
+                        break;
+                    }
+                    i1index++;
+                }
+                if (x)
+                {
+                    break;
+                }
+                i0index++;
+                i1index = 0;
+            }
+
+            catchRelativeIndex.Should().BeEquivalentTo(relativeIndexShouldBe);
         }
 
         /// <summary>
@@ -219,8 +254,6 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         /// Output: [2,4,3,1]
         /// The outputs[4, 2, 3, 1], [2, 4, 1, 3], and[4, 2, 1, 3] would also be accepted.
         /// </summary>
-        /// <param name="request"></param>
-        /// <param name="target"></param>
         public void SortArrayByParity(string request, int target)
         {
         }
@@ -234,8 +267,6 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         /// 例如，函数返回的新长度为 2 ，
         /// 而 nums = [2, 2, 3, 3] 或 nums = [2, 2, 0, 0]，也会被视作正确答案。
         /// </summary>
-        /// <param name="request"></param>
-        /// <param name="target"></param>
         [Theory]
         [InlineData(
             new[] { 5, 41, 41, 33, 123 },
