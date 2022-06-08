@@ -242,7 +242,7 @@ namespace EasyTestAnyThingTest.Training.Algorithm
                     }
                 }
             }
-            
+
             catchRelativeIndex.Should().BeEquivalentTo(relativeIndexShouldBe);
         }
 
@@ -255,8 +255,34 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         /// Output: [2,4,3,1]
         /// The outputs[4, 2, 3, 1], [2, 4, 1, 3], and[4, 2, 1, 3] would also be accepted.
         /// </summary>
-        public void SortArrayByParity(string request, int target)
+        [Theory]
+        [InlineData(
+            new[] { 5, 8, 15, 30, 68 },
+            new[] { 8, 30, 68, 5, 15 })]
+        [InlineData(
+            new[] { 3, 1, 2, 4 },
+            new[] { 2, 4, 3, 1 })]
+        public void SortArrayByParity(int[] numbers, int[] assertNumbersShouldBe)
         {
+            var evenNumber = new List<int>();
+            var oddNumber = new List<int>();
+            var answerNumbers = new List<int>();
+
+            foreach (var i in numbers)
+            {
+                if (i % 2 == 0)
+                {
+                    evenNumber.Add(i);
+                }
+                else
+                {
+                    oddNumber.Add(i);
+                }
+            }
+            answerNumbers.AddRange(evenNumber);
+            answerNumbers.AddRange(oddNumber);
+
+            answerNumbers.ToArray().Should().BeEquivalentTo(assertNumbersShouldBe);
         }
 
         /// <summary>
