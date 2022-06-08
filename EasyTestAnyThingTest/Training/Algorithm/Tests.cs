@@ -216,32 +216,33 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         public void TwoSum(int[] numbers, int target, int[] relativeIndexShouldBe)
         {
             var catchRelativeIndex = new int[2];
-            var i0index = 0;
-            var i1index = 0;
+            var firstIndex = 0;
+            var secondIndex = 0;
+            var w1 = true;
+            var w2 = true;
 
-            var x = false;
-            
-            foreach (var i0 in numbers)
+            while (w1)
             {
-                foreach (var i1 in numbers)
+                var firstNumber = numbers[firstIndex++];
+                while (w2)
                 {
-                    if (i0 + i1 == target)
+                    var nextWillOutRange = secondIndex > numbers.Count() - 1;
+                    if (nextWillOutRange)
                     {
-                        catchRelativeIndex.SetValue(++i0index, 0);
-                        catchRelativeIndex.SetValue(++i1index, 1);
-                        x = true;
+                        secondIndex = 0;
                         break;
                     }
-                    i1index++;
-                }
-                if (x)
-                {
-                    break;
-                }
-                i0index++;
-                i1index = 0;
-            }
 
+                    if (firstNumber + numbers[secondIndex++] == target)
+                    {
+                        catchRelativeIndex.SetValue(firstIndex, 0);
+                        catchRelativeIndex.SetValue(secondIndex, 1);
+                        w1 = false;
+                        w2 = false;
+                    }
+                }
+            }
+            
             catchRelativeIndex.Should().BeEquivalentTo(relativeIndexShouldBe);
         }
 
