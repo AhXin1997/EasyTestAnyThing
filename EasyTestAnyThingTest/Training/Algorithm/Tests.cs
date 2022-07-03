@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -303,10 +304,24 @@ namespace EasyTestAnyThingTest.Training.Algorithm
         [InlineData(
             new[] { 5, 5, 55, 55, 5, 5, 80, 55, 55 },
             5,
-            new[] { 55, 55, 55, 55, 80 },
-            3)]
+            new[] { 55, 55, 80, 55, 55 },
+            5)]
         public void RemoveElement(int[] arr, int removeNumber, int[] newArr, int newArrCount)
         {
+            var arrange = 0;
+
+            foreach (var value in arr)
+            {
+                if (value != removeNumber)
+                {
+                    arr[arrange] = value;
+                    arrange++;
+                }
+            }
+
+            newArrCount.Should().Be(arrange);
+            Array.Resize(ref arr, arrange);
+            newArr.Should().BeEquivalentTo(arr);
         }
 
         /*
@@ -324,7 +339,7 @@ namespace EasyTestAnyThingTest.Training.Algorithm
          *
          * 2. 分配旅遊者到大飯店 分房
          * ***隨機分配
-         * 把旅行者明子導入到大飯店列表
+         * 把旅行者名字導入到大飯店列表
          *
          * 3. 驗證是否分配成功
          * 列印出大飯店詳細訊息
@@ -334,11 +349,46 @@ namespace EasyTestAnyThingTest.Training.Algorithm
 
         [Theory]
         [InlineData(
-            new[] { "man01", "man02","man03", "man04","man05", "man06",
-                "woman01", "woman02","woman03", "woman04","woman05", "woman06",},
-            new[] { "奈良溫泉", "加賀屋溫泉", "大板根溫泉", "草津溫泉" })]
+             new[]
+             {
+                 "man01", "man02", "man03", "man04", "man05", "man06",
+                 "woman01", "woman02", "woman03", "woman04", "woman05", "woman06", "woman07"
+             },
+             new[] { "奈良溫泉", "加賀屋溫泉", "大板根溫泉", "草津溫泉" })]
         public void RandomSleep(string[] traveler, string[] hotSpringHotel)
         {
+            var travelers = traveler.ToList();
+            var hotels = hotSpringHotel.ToList();
+            var eachHotelTraveler = (int)Math.Ceiling((double)travelers.Count / hotSpringHotel.Length);
+
+            var target = hotels.Select(s => new RandomSleepObj
+            {
+                HotSpringHotel = s,
+                Travelers = Enumerable.Range(0,eachHotelTraveler).Select(s =>
+                {
+                    if (travelers.Count == 0)
+                    {
+                        return null;
+                    }
+                    var random = new Random();
+                    var getTraveler = travelers[random.Next(0,travelers.Count -1)];
+                    travelers.Remove(getTraveler);
+                    return getTraveler;
+                }).ToList()
+            });
+
+            _testOutputHelper.WriteLine(JsonConvert.SerializeObject(target));
+        }
+
+        private class RandomSleepObj
+        {
+            public RandomSleepObj()
+            {
+                Travelers = new List<string>();
+            }
+
+            public string HotSpringHotel { get; set; }
+            public List<string> Travelers { get; set; }
         }
     }
 }
