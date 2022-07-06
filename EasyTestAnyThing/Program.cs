@@ -1,26 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EasyTestAnyThing.Tool;
+using EasyTestAnyThing.Tool.Enum;
 
 namespace EasyTestAnyThing
 {
     public class Program
     {
-        private static void Main()
+        class Name
         {
-            //Tool
-            //var tool = new EasyOutputMessage();
-            //tool.EasyOutputMessageMethod();
-
-            //WebServer
-            //StartServer();
-
-            Console.ReadKey();
         }
 
-        private static void StartServer() 
+        private static void Main()
         {
-            WebServer.ServerStart.StartServer();
+            ////[Tool]
+            //EasyOutputMessage.EasyOutputMessageMethod(
+            //    typeof(Name),
+            //    EasyOutputMessageMethod.ToMultilingualKeysName);
+
+            ////[WebServer]
+            //WebServer.ServerStart.StartServer();
+
+            Console.ReadKey();
         }
 
         /* TODO_List

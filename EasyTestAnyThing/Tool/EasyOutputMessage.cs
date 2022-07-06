@@ -1,53 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EasyTestAnyThing.Tool.Enum;
 
 namespace EasyTestAnyThing.Tool
 {
-    public class EasyOutputMessage
+    public static class EasyOutputMessage
     {
-        private class Item
+        public static void EasyOutputMessageMethod(Type classType, EasyOutputMessageMethod sqlTable)
         {
-            //需轉換的Properties
-        }
-
-        public void EasyOutputMessageMethod()
-        {
-            var list = new List<string>();
-
-            //ToAccessors(list);
-            //ToSql(list);
-
-            list.ForEach(Console.WriteLine);
+            ConverterTo(classType, sqlTable).ForEach(Console.WriteLine);
             Console.ReadKey();
         }
 
-        private const string Accessors = "{get; set;}";
-
-        private void ToAccessors(List<string> list)
+        private static List<string> ConverterTo(Type classType, EasyOutputMessageMethod type)
         {
+            var list = new List<string>();
+
+            if (type is Enum.EasyOutputMessageMethod.ToSqlTable)
+            {
+                list.Add("|Name|Type|Allow Null|");
+                list.Add("|----|----|----------|");
+            }
+
             list.AddRange(
-                typeof(Item)
+                classType
                     .GetProperties()
                     .Select(index =>
-                        $"public {PropertyTypeExtensionToAccessors(index.PropertyType)} {index.Name} " + Accessors
-                        )
-                );
-        }
+                    {
+                        switch (type)
+                        {
+                            case Enum.EasyOutputMessageMethod.ToSqlTable:
+                                return $"|{index.Name}|{PropertyTypeExtensionToSqlType(index.PropertyType)}| not null,|";
 
-        private void ToSql(List<string> list)
-        {
-            list.Add("Name\tType\tAllow Null");
-            list.AddRange(
-                typeof(Item)
-                    .GetProperties()
-                    .Select(index => 
-                        $"{index.Name}\t{PropertyTypeExtensionToSqlType(index.PropertyType)}\t" + ","
-                        )
-                );
-        }
+                            case Enum.EasyOutputMessageMethod.ToClassProperty:
+                                return $"public {PropertyTypeExtensionToAccessors(index.PropertyType)} {index.Name}  {{get; set;}}";
 
-        private string PropertyTypeExtensionToAccessors(Type propertyType)
+                            case Enum.EasyOutputMessageMethod.ToMultilingualKeysCode:
+                                return $"new() {{ DisplayKey = MultilingualKeys.Raw_{classType.Name}_{index.Name}, Value = record.{index.Name} }},";
+
+                            case Enum.EasyOutputMessageMethod.ToMultilingualKeysName:
+                                return $"Raw_{classType.Name}_{index.Name},";
+
+                            case Enum.EasyOutputMessageMethod.ToSqlDataModel:
+                                return $"{index.Name} = rawData.{index.Name},";
+
+                            case Enum.EasyOutputMessageMethod.ToCreateSqlParameter:
+                                return $"{{nameof(betRaw.{index.Name}), betRaw.{index.Name}}},";
+
+                            default:
+                                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                        }
+                    })
+                );
+
+            return list;
+        }
+        
+        private static string PropertyTypeExtensionToAccessors(Type propertyType)
         {
             switch (propertyType.ToString().Replace("System.", "").ToLower())
             {
@@ -74,7 +84,7 @@ namespace EasyTestAnyThing.Tool
             }
         }
 
-        private string PropertyTypeExtensionToSqlType(Type propertyType)
+        private static string PropertyTypeExtensionToSqlType(Type propertyType)
         {
             switch (propertyType.ToString().Replace("System.", "").ToLower())
             {

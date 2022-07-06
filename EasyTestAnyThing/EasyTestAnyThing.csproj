@@ -137,6 +137,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tool\Enum\EasyOutputMessageMethod.cs" />
     <Compile Include="Training\CSharpReflection\Start.cs" />
     <Compile Include="Training\CSharpReflection\Factory\GetApiParameterFactory.cs" />
     <Compile Include="Training\CSharpReflection\Factory\ReflectionFactory.cs" />
