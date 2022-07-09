@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using EasyTestAnyThing.Tool;
+﻿using EasyTestAnyThing.Tool;
 using EasyTestAnyThing.Tool.Enum;
+using System;
+using EasyTestAnyThing.WebServer;
 
 namespace EasyTestAnyThing
 {
     public class Program
     {
-        class Name
+        private class Name
         {
         }
 
         private static void Main()
         {
-            ////[Tool]
-            //EasyOutputMessage.EasyOutputMessageMethod(
-            //    typeof(Name),
-            //    EasyOutputMessageMethod.ToMultilingualKeysName);
+            //[Tool]
+            typeof(Name).EasyOutputMessageMethod(EasyOutputMessageMethod.ToMultilingualKeysName);
 
-            ////[WebServer]
-            //WebServer.ServerStart.StartServer();
+            //[WebServer]
+            ServerStart.Server(false);
 
             Console.ReadKey();
         }

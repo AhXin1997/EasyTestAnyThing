@@ -7,9 +7,13 @@ namespace EasyTestAnyThing.Tool
 {
     public static class EasyOutputMessage
     {
-        public static void EasyOutputMessageMethod(Type classType, EasyOutputMessageMethod sqlTable)
+        public static void EasyOutputMessageMethod(this Type classType, EasyOutputMessageMethod method)
         {
-            ConverterTo(classType, sqlTable).ForEach(Console.WriteLine);
+            if (!classType.GetProperties().Any())
+            {
+                return;
+            }
+            ConverterTo(classType, method).ForEach(Console.WriteLine);
             Console.ReadKey();
         }
 
