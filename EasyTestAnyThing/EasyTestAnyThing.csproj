@@ -150,6 +150,7 @@
     <Compile Include="Training\DependencyInjection\PlugDemo\HairDryer.cs" />
     <Compile Include="Training\DependencyInjection\Start.cs" />
     <Compile Include="Training\IfNull\Start.cs" />
+    <Compile Include="Training\LeetCode\RomanToInt.cs" />
     <Compile Include="Training\MSClass\CharReverse\NewCharReverse.cs" />
     <Compile Include="Training\MSClass\DiceGame\DiceService.cs" />
     <Compile Include="Training\MSClass\DiceGame\Models\DiceGameResponds.cs" />

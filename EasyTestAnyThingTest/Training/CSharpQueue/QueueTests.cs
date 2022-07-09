@@ -24,6 +24,7 @@ namespace EasyTestAnyThingTest.Training.CSharpQueue
         /* 情境一
          * 執行三個 Function => 每個 Function 耗時 1s + 2s + 3s
          * 執行完後才執行下一個總計為 6s
+         * 耗時就skip
          */
         [Fact(Skip = "skip")]
         public void Solution01_同步()

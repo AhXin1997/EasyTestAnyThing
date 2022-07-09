@@ -8,7 +8,7 @@ using Xunit.Abstractions;
 
 namespace EasyTestAnyThingTest.Training.Algorithm
 {
-    public class Tests
+    public class TempTests
     {
         /// <summary>
         /// 時間複雜度
@@ -18,7 +18,9 @@ namespace EasyTestAnyThingTest.Training.Algorithm
 
         private readonly ITestOutputHelper _testOutputHelper;
 
-        public Tests(ITestOutputHelper testOutputHelper)
+        
+
+        public TempTests(ITestOutputHelper testOutputHelper)
         {
             _testOutputHelper = testOutputHelper;
         }
@@ -143,62 +145,7 @@ namespace EasyTestAnyThingTest.Training.Algorithm
             var firstOrDefault = selfGroupBy.FirstOrDefault(s => s.Value.Count < 2);
             firstOrDefault.Key.Should().Be(target);
         }
-
-        /// <summary>
-        /// 題目給羅馬數字，要把它轉換成阿拉伯數字。比如給”IV”得到數字4、給”VI”會得到6，”DCXXI”得到621。
-        /// </summary>
-        [Theory]
-        [InlineData("IV", 4)]
-        [InlineData("CXCIX", 199)]
-        [InlineData("DCXXI", 621)]
-        [InlineData("DCCC", 800)]
-        [InlineData("MCDXXXVII", 1437)]
-        [InlineData("MMMCCCXXXIII", 3333)]
-        public void RomanToArabicNumber(string request, int target)
-        {
-            var romanNumberDictionary = new Dictionary<string, int>()
-            {
-                { "I", 1 },
-                { "V", 5 },
-                { "X", 10 },
-                { "L", 50 },
-                { "C", 100 },
-                { "D", 500 },
-                { "M", 1000 },
-            };
-
-            var isAllowMinus = new List<char>()
-            {
-                'I', 'X', 'C'
-            };
-
-            int answer = default;
-            int lastNumber = default;
-            char lastWord = default;
-            var isFirstTime = true;
-
-            foreach (var word in request)
-            {
-                var number = romanNumberDictionary[word.ToString()];
-                if (number > lastNumber &&
-                    isAllowMinus.Contains(lastWord) &&
-                    !isFirstTime)
-                {
-                    answer -= (lastNumber * 2) - number;
-                }
-                else
-                {
-                    answer += number;
-                }
-
-                isFirstTime = false;
-                lastNumber = number;
-                lastWord = word;
-            }
-
-            Math.Abs(answer).Should().Be(target);
-        }
-
+        
         /// <summary>
         /// Input: numbers = [2,7,11,15], target = 9
         /// Output: [1,2]
