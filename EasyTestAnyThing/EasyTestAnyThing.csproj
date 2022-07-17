@@ -170,6 +170,7 @@
     <Compile Include="Training\ExportExcel\ExportExcelRequest.cs" />
     <Compile Include="Training\IfNull\Start.cs" />
     <Compile Include="Training\LeetCode\RomanToInt.cs" />
+    <Compile Include="Training\LeetCode\TwoSum.cs" />
     <Compile Include="Training\MSClass\CharReverse\NewCharReverse.cs" />
     <Compile Include="Training\MSClass\DiceGame\DiceService.cs" />
     <Compile Include="Training\MSClass\DiceGame\Models\DiceGameResponds.cs" />

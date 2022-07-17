@@ -10,7 +10,7 @@ namespace EasyTestAnyThingTest.Training.ExportExcel
     public class ExportExcelTests
     {
         private readonly EasyTestAnyThing.Training.ExportExcel.ExportExcel _target;
-        private IData _data;
+        private readonly IData _data;
 
         public ExportExcelTests()
         {
@@ -18,7 +18,7 @@ namespace EasyTestAnyThingTest.Training.ExportExcel
             _target = new EasyTestAnyThing.Training.ExportExcel.ExportExcel(_data);
         }
 
-        [Fact(Skip = "")]
+        [Fact(Skip = "Skip")]
         public void Export()
         {
             _data.Videos.Returns(new List<Video>()
