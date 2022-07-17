@@ -34,6 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=6.0.6.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.0.6\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.0.0\lib\net452\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.0.0\lib\net452\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Cors, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Cors.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cors.dll</HintPath>
     </Reference>
@@ -91,6 +100,8 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -99,6 +110,7 @@
       <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -135,6 +147,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tool\Enum\EasyOutputMessageMethod.cs" />
@@ -144,11 +157,17 @@
     <Compile Include="Training\CSharpReflection\FakeDb\ConnFakeDb.cs" />
     <Compile Include="Training\CSharpReflection\Api\Model\NewApiParameter.cs" />
     <Compile Include="Training\CSharpReflection\Api\NewApi.cs" />
+    <Compile Include="Training\Data\Data.cs" />
+    <Compile Include="Training\Data\IData.cs" />
+    <Compile Include="Training\Data\Video.cs" />
+    <Compile Include="Training\Data\VideoType.cs" />
     <Compile Include="Training\DependencyInjection\PlugDemo\Sockets.cs" />
     <Compile Include="Training\DependencyInjection\PlugDemo\SecureHairDryer.cs" />
     <Compile Include="Training\DependencyInjection\PlugDemo\Interface\IHomeAppliance.cs" />
     <Compile Include="Training\DependencyInjection\PlugDemo\HairDryer.cs" />
     <Compile Include="Training\DependencyInjection\Start.cs" />
+    <Compile Include="Training\ExportExcel\ExportExcel.cs" />
+    <Compile Include="Training\ExportExcel\ExportExcelRequest.cs" />
     <Compile Include="Training\IfNull\Start.cs" />
     <Compile Include="Training\LeetCode\RomanToInt.cs" />
     <Compile Include="Training\MSClass\CharReverse\NewCharReverse.cs" />

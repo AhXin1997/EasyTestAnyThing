@@ -30,6 +30,11 @@
         /// <summary>
         /// {nameof(betRaw.{index.Name}), betRaw.{index.Name}},
         /// </summary>
-        ToCreateSqlParameter
+        ToCreateSqlParameter,
+
+        /// <summary>
+        /// Property(p => p.{index.Name}).IsRequired();
+        /// </summary>
+        ToSqlMapping
     }
 }
